@@ -154,8 +154,17 @@ export class Landing extends React.PureComponent {
                         </div>
                         <div className={styles['info-block']}>
                             <p className={styles['trees-planted']}>{treesPlanted}</p>
-                            <p className={styles.label}>Trees planted</p>
-                            <div className={styles.filler}></div>
+                            <p className={styles.label}>Trees are already planted</p>
+                            <div className={styles.goalMeter}>
+                                <div class={styles.current} style={{
+                                    width: '20%',
+                                }}></div>
+                                <span>1st goal: 1 000 000 trees</span>
+                            </div>
+                            <div className={styles.info}>
+                                The loss of trees and other vegetation can cause climate change, desertification, soil erosion, fewer crops, flooding, increased greenhouse gases in the atmosphere, and a host of problems for indigenous people.
+                            </div>
+                            <div className={styles.separator}></div>
                             <div className={styles.facts}>
                                 <div className={styles.fact}>
                                     <p>1 458 754</p>
