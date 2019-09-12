@@ -33,7 +33,6 @@ class App extends React.PureComponent {
                             <Landing
                                 apiService={this.apiService}
                                 userService={this.userService}
-                                user={this.userService.currentUser}
                                 data={{
                                     treesPlanted: '110 234',
                                 }}
