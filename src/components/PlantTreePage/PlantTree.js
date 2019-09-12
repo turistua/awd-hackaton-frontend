@@ -51,7 +51,7 @@ const PlantTree = props => {
                 {treeCount}
                 <span onClick={() => increment()}>+</span>
             </div>
-            <div>You need {treesToTokens(treeCount)} TreeTokens</div>
+            <div>You need {treesToTokens(treeCount) || 0} TreeTokens</div>
             <button onClick={e => onSubmit(e)}>Send TreeTokens & Plant</button>
         </div>
     );
