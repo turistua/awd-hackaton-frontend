@@ -6,6 +6,7 @@ import backButtonImg from 'img/back-button.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
+import { Footer } from 'components/Footer/Footer';
 
 class ProfilePageBase extends React.PureComponent {
 
@@ -81,16 +82,7 @@ class ProfilePageBase extends React.PureComponent {
                         </div>
                     </div>
                 </div>
-                <div className={styles.footer}>
-                    <div className={styles.footerBlock}>
-                        <div className={styles.copyright}>© Unilever 2019</div>
-                        <div className={styles.links}>
-                            <a href="#">Cookie policy</a>
-                            <a href="#">Privacy policy</a>
-                            <a href="#">Terms and conditions</a>
-                        </div>
-                    </div>
-                </div>
+                <Footer />
             </div>
         )
     }

@@ -9,6 +9,7 @@
     font-family: SFProDisplay, sans-serif;
     max-width: 375px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .header {
@@ -18,6 +19,7 @@
     color: #000000;
     opacity: 0.44;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .header > div:nth-child(1) {
