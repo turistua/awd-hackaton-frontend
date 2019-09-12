@@ -88,10 +88,10 @@ export class Landing extends React.PureComponent {
         const {user} = this.props;
         const stepArrow = (<p className={styles['step-arrow']}>↓</p>);
         const navbar = (
-            <div className={styles.navbar}>
-                <div className={styles.buttons}>
-                    <a onClick={() => this.setState({ showSignUpPopup: true })}>Register</a>
-                    <a onClick={() => this.setState({ showSignInPopup: true })}>Login</a>
+            <div className={styles.navbarUnregWrapper}>
+                <div className={styles.navbarUnreg}>
+                    <a onClick={() => this.setState({ showSignUpPopup: true })}>Sign up</a>
+                    <a onClick={() => this.setState({ showSignInPopup: true })}>Sign in</a>
                 </div>
             </div>
         );
@@ -242,6 +242,7 @@ export class Landing extends React.PureComponent {
                 </div>
                 <div className={styles.planters}>
                     <p className={styles.heading}>Top tree planters</p>
+                    <p className={styles.membersCount}>We already have 1547 members</p>
                     <div className={styles.list}>
                     {
                         planters.map(planter => {
@@ -263,6 +264,9 @@ export class Landing extends React.PureComponent {
                             )
                         })
                     }
+                    </div>
+                    <div class={styles.button}>
+                        Show all planters
                     </div>
                 </div>
                 <div className={styles.goals}>

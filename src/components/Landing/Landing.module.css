@@ -374,7 +374,6 @@
 }
 
 .planters {
-    height: 335px;
     width: 100%;
     background-color: #eeeeee;
     padding: 70px 15px;
@@ -392,8 +391,36 @@
     letter-spacing: 0.36px;
     text-align: center;
     color: #000000;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 5px auto;
     max-width: 375px;
+    text-transform: uppercase;
+}
+
+.planters .membersCount {
+    width: 100%;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.planters .button {
+    max-width: 256px;
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: solid 1px #5ebe5b;
+    color: #5ebe5b;
+    padding: 5px;
+    margin: 0 auto;
+    font-family: DIN2014, Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
 
 .planters > .list {
@@ -401,6 +428,7 @@
     flex-direction: row;
     max-width: 375px;
     margin: 0 auto;
+    margin-bottom: 30px;
 }
 
 .planters > .list > div {
@@ -552,4 +580,50 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
+}
+
+
+.navbarUnregWrapper {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.navbarUnreg {
+    max-width: 375px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px 50px;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.navbarUnreg a {
+    width: 98px;
+    height: 30px;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.navbarUnreg a:hover {
+    width: 98px;
+    height: 30px;
+    border-radius: 4px;
+    border: solid 1px #5ebe5b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
