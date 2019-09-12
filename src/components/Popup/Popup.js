@@ -10,7 +10,7 @@ export class Popup extends React.PureComponent {
                     className="popup__close"
                     onClick={this.props.onClose}
                     >
-                    ×
+                    +
                 </div>
                 {this.props.children}
             </div>

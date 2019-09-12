@@ -1,60 +1,163 @@
-.signup {
-    max-width: 375px;
-    display:flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding-top: 100px;
-    font-family: SFProDisplay, sans-serif;
+.signup > fieldset {
+  max-width: 375px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 100px;
+  font-family: SFProDisplay, sans-serif;
+  padding: 40px 23px 30px;
+  border: none;
 }
 
-.signup > input {
-    margin: 0;
-	border: 0;
-    padding: 0;
-    margin-bottom: 10px;
-	display: inline-block;
-	vertical-align: middle;
-	white-space: normal;
-	background: none;
-	line-height: 1;
-	font-size: 20px;
-    border-bottom: 2px solid #5ebe5b;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 0.34px;
-    outline: none;
-    text-align: center;
-    color: #5ebe5b;
+.signup > fieldset label {
+  text-align: start;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: .21px;
+  color: #676767;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
 }
 
-.signup > input::placeholder {
-	font-size: 20px;
+.signup > fieldset input[type=text],
+.signup > fieldset input[type=password],
+.signup > fieldset input[type=email] {
+  margin: 0 0 15px 0;
+  border: 0;
+  padding: 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  font-size: 16px;
+  border-bottom: 1px solid #5ebe5b;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 31px;
+  letter-spacing: .27px;
+  outline: none;
+  text-align: left;
+  color: rgba(0,0,0,.5);
+  height: 31px;
+  background-color: rgba(94,190,91,.25);
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.signup > input:-webkit-autofill {
-	font-size: 20px;
-    color: #5ebe5b;
-    background-color: white !important;
+
+.signup > fieldset input[type=text]::placeholder,
+.signup > fieldset input[type=password]::placeholder,
+.signup > fieldset input[type=email]::placeholder {
+  font-size: 16px;
+  color: rgba(0,0,0,.5);
+}
+
+.signup > fieldset input[type=text]:-webkit-autofill,
+.signup > fieldset input[type=password]:-webkit-autofill,
+.signup > fieldset input[type=email]:-webkit-autofill {
+  font-size: 20px;
+  color: #5ebe5b;
+  background-color: white !important;
+}
+
+.agreeterms input[type=checkbox] {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.agreeterms input[type=checkbox] + label {
+  display: inline-block;
+  margin: 0 5px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  position: relative;
+  transform: translateY(5px);
+  cursor: pointer;
+}
+.agreeterms input[type=checkbox] + label:hover {
+  background-color: #e2e2e2;
+}
+.agreeterms input[type=checkbox] + label::after {
+  content: '';
+  position: absolute;
+}
+.agreeterms input[type=checkbox]:checked + label::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2211%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%235EBE5B%22%20stroke-linecap%3D%22square%22%20stroke-width%3D%222%22%20d%3D%22M2%206l3%203%207-7%22%2F%3E%3C%2Fsvg%3E');
 }
 
 button {
-    margin: 0 auto;
-    height: 55px;
-    border-radius: 10px;
-    background-color: #5ebe5b;
-    border:none;
-    color: white;
-    font-family: inherit;
-    width: 255px;
-    font-size: 20px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: 0.34px;
-    text-align: center;
-    margin-bottom: 20px;
-    outline: 0;
+  margin: 0 auto;
+  height: 45px;
+  border-radius: 4px;
+  background-color: #5ebe5b;
+  border: none;
+  color: white;
+  font-family: inherit;
+  width: 255px;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: .34px;
+  text-align: center;
+  margin-bottom: 20px;
+  outline: 0;
+  width: 100%;
+  cursor: pointer;
+}
+button:hover {
+  opacity: .9;
+}
+
+.hr {
+  height: 1px;
+  width: 100%;
+  background-color: #c2c2c2;
+  margin: 30px 0;
+}
+
+h2 {
+  background-color: rgba(94,190,91,.15);
+  margin: 0;
+  line-height: 57px;
+  border-radius: 10px 10px 0 0;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: .36px;
+  text-align: center;
+  color: #000;
+}
+
+a:link,
+a:visited {
+  color: #5ebe5b;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: #5ebe5b;
+  text-decoration: underline;
+}
+
+.haveaccount {
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+.agreeterms {
+  font-size: 12px;
 }
