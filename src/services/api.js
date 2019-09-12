@@ -5,7 +5,17 @@ export class ApiService {
     }
 
     async getStatistics() {
-        // /api/v1/globalstatistic
+        return fetch("http://89.22.50.171:8080/api/v1/globalstatistic", {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then((res, rej) => {
+                return res.json().then(data => data);
+            })
+            .catch(error => console.log("error", error));
     }
 
     async plantTree(amountTrees, email, regionId) {
@@ -23,13 +33,25 @@ export class ApiService {
         })
             .then((res, rej) => {
                 console.log("Planting response", res);
-                return res.json().then(data => data);
+                if (res.status < 500) {
+                    return res.json().then(data => data);
+                }
             })
             .catch(error => console.log("error", error));
     }
 
     async getTopGardeners() {
-        // /api/v1/topgardeners
+        return fetch("http://89.22.50.171:8080/api/v1/topgardeners", {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then((res, rej) => {
+                return res.json().then(data => data);
+            })
+            .catch(error => console.log("error", error));
     }
 
     async submitCode(code) {

@@ -55,7 +55,6 @@ export class UserService {
             },
         })
             .then((res, rej) => {
-                // console.log("profile", res);
                 return res.json().then(data => data);
             })
             .catch(error =>
@@ -154,7 +153,17 @@ export class UserService {
     }
 
     async getStatistic(email) {
-        // /api/v1/statistic
+        return fetch(`http://89.22.50.171:8080/api/v1/statistic?login=${email}`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then((res, rej) => {
+                return res.json().then(data => data);
+            })
+            .catch(error => console.log("error", error));
     }
 
     logout() {
