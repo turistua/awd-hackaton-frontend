@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { markers } from "components/GoogleMap/GoogleMapWithMarker";
+import { regions } from "components/RegionMap/RegionMap";
 import styles from "components/Landing/Landing.module.css";
 import "./PlantTree.css";
 
@@ -47,7 +47,7 @@ const PlantTree = props => {
             <div>
                 {
                     (
-                        markers.find(
+                        regions.find(
                             item =>
                                 item.id.toString() ===
                                 props.router.match.params.regionId.toString()

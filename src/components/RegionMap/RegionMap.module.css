@@ -54,6 +54,7 @@
     line-height: normal;
     letter-spacing: 0.29px;
     color: #2eab2a;
+    cursor: pointer;
 }
 
 .region-desc {
