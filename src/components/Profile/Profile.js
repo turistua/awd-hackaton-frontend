@@ -7,18 +7,31 @@ export class ProfilePage extends React.PureComponent {
         const { user } = this.props;
         const achivementsTable = user.achievements.length ? (
             <div className={styles['achivements-table']}>
-                {user.achievements.map(achievement => {
-                    return <div className={styles.achievement}>
-                        <div className={styles['achievement-avatar']} style={{
-                            backgroundImage: `url(${achievement.avatarUrl})`,
-                        }}></div>
-                        <div>{achievement.title}</div>
-                    </div>
-                })}
+                <div className={styles.row}>
+                    {user.achievements.slice(0,3).map(achievement => {
+                        return <div key={achievement.name} className={styles.achievement}>
+                            <div className={styles.avatar} style={{
+                                backgroundImage: `url(${achievement.img})`,
+                            }}></div>
+                            <div className={styles.title}>{achievement.title}</div>
+                        </div>
+                    })}
+                </div>
+                <div className={styles.row}>
+                    {user.achievements.slice(3,6).map(achievement => {
+                        return <div key={achievement.name} className={styles.achievement}>
+                            <div className={styles.avatar} style={{
+                                backgroundImage: `url(${achievement.img})`,
+                            }}></div>
+                            <div className={styles.title}>{achievement.title}</div>
+                        </div>
+                    })}
+                </div>
             </div>
         ) : null
         return (
             <div>
+                <div className={styles.backButton}></div>
                 <div className={styles['info-block']}>
                     <div className={styles.avatar} style={{
                         backgroundImage: `url(${user.avatarUrl})`,

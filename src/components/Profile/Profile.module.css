@@ -52,10 +52,6 @@
     color: #676767;
 }
 
-.achivements-table {
-    display: flex;
-    padding: 30px 0;
-}
 
 .separator {
     height: 2px;
@@ -108,6 +104,52 @@
     font-stretch: normal;
     line-height: normal;
     letter-spacing: 0.29px;
+    text-align: center;
+    color: #676767;
+}
+
+.backButton {
+
+}
+
+.achivements-table {
+    padding: 30px 0;
+}
+
+.achivements-table .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.achivements-table .row:last-child {
+    margin-bottom: 0;
+}
+
+.achievement {
+    width: 33%;
+}
+
+.achievement .cell {
+}
+
+.achievement .avatar {
+    width: 46px;
+    height: 46px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.achievement > .title {
+    font-family: SFProDisplay;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.22px;
     text-align: center;
     color: #676767;
 }
