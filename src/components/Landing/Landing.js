@@ -45,7 +45,6 @@ export class Landing extends React.PureComponent {
             showSuccessCodePopup: false,
             showSignInPopup: false,
             showSignUpPopup: false,
-            showMapPopup: false,
             regionId: '',
             message: '',
             treeCount: 0
@@ -125,27 +124,6 @@ export class Landing extends React.PureComponent {
                         showSignUpPopup: false,
                     });
                 }} />
-            </Popup>
-        );
-        const plantTreePopup = (
-            <Popup onClose={() => this.setState({showMapPopup: false})}>
-                <div className="plant-tree-container">
-                    <h4>{this.state.message}</h4>
-                    <form autoComplete="off">
-                        <input
-                            ref={this.tokensRef}
-                            name="tokens"
-                            type="number"
-                            onChange={(e) => this.setState({treeCount: tokensToTrees(e.target.value)})}
-                            placeholder="Tokens to convert to trees"
-                            min={1}
-                        ></input>
-                        <span>
-                            You will plant {this.state.treeCount} trees
-                        </span>
-                        <button onClick={this.plantTree}>Plant</button>
-                    </form>
-                </div>
             </Popup>
         );
         const codePopup = (
@@ -240,6 +218,7 @@ export class Landing extends React.PureComponent {
                         apiService={this.props.apiService}
                         user={this.props.user}
                         handleMapMarkerClick={(data) => this.setState(data)}
+                        router={this.props.router}
                     />
                 </div>
                 <div className={styles.planters}>
@@ -280,7 +259,6 @@ export class Landing extends React.PureComponent {
                 {this.state.showSuccessCodePopup ? successCodePopup : null}
                 {this.state.showSignInPopup ? signInPopup : null}
                 {this.state.showSignUpPopup ? signUpPopup : null}
-                {this.state.showMapPopup ? plantTreePopup : null}
             </div>
         )
     }
