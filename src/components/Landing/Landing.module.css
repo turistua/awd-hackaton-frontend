@@ -363,13 +363,13 @@
     width: 100%;
     padding: 0 25px;
     box-sizing: border-box;
-    padding-top: 40px;
+    padding-top: 80px;
 }
 
 .map-container {
     width: 100%;
     background-color: #e7e7e7;
-    padding-top: 470px;
+    padding-top: 530px;
     padding-bottom: 40px;
 }
 
@@ -542,7 +542,7 @@
     align-items: center;
     justify-content: flex-end;
     align-items: center;
-    padding: 5px 0;
+    padding: 20px 0;
 }
 
 .navbarNew > *:not(:last-child) {
