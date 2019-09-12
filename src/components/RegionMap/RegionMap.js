@@ -41,7 +41,6 @@ export class RegionMap extends React.PureComponent {
 
     handleMarkerClick = (message, regionId) => {
         this.props.handleMapMarkerClick({
-            showMapPopup: true,
             regionId,
             message,
             treeCount: 0
@@ -71,6 +70,7 @@ export class RegionMap extends React.PureComponent {
                         infoboxPosY={this.state.markerLang}
                         infoboxPosX={this.state.markerLat}
                         regionId={this.state.regionId}
+                        router={this.props.router}
                         view='Home'
                     />
                 </div>

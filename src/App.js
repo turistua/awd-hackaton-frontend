@@ -8,6 +8,7 @@ import { Signup } from 'components/Signup/Signup';
 import { NotFound } from 'components/NotFound/NotFound';
 import { UserService, mockUsers } from 'services/user';
 import { ApiService } from 'services/api';
+import PlantTree from 'components/PlantTreePage/PlantTree';
 
 class App extends React.PureComponent {
 
@@ -40,6 +41,7 @@ class App extends React.PureComponent {
                                 submitCode={async () => {
                                     await this.apiService.submitCode(this.state.code);
                                 }}
+                                router={router}
                                 />
                         )
                     }}/>
@@ -79,6 +81,9 @@ class App extends React.PureComponent {
                         this.userService.logout();
                         this.setState({user: null});
                         router.history.push('/');
+                    }}/>
+                    <Route path="/plantTree/:regionId" exact render={router => {
+                        return (<PlantTree router={router} apiService={this.apiService} user={this.state.user}/>);
                     }}/>
                 </Router>
             </div>
