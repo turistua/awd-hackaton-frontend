@@ -33,3 +33,81 @@
 .popup__close:hover {
   background-color: rgba(255,255,255,.5);
 }
+
+.successPopup .successPopupWrapper {
+  padding: 24px 23px 50px;
+}
+.successPopup h2 {
+  background-color: rgba(94,190,91,.15);
+  margin: 0;
+  line-height: 57px;
+  border-radius: 10px 10px 0 0;
+  font-size: 21px;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: .36px;
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.successPopup .hooray {
+  font-size: 60px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 1.03px;
+  color: #676767;
+}
+.successPopup .tokensGranted {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  align-items: center;
+  font-size: 21px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: .36px;
+  color: #5ebe5b;
+}
+.successPopup .tokensAmount {
+  padding-right: 10px;
+  font-size: 60px;
+}
+.successPopup .tokensLabel {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.successPopup .hr {
+  height: 1px;
+  width: 100%;
+  background-color: #c2c2c2;
+  margin: 30px 0;
+}
+.successPopup button {
+  margin: 0 auto;
+  height: 45px;
+  border-radius: 4px;
+  background-color: #5ebe5b;
+  border: none;
+  color: white;
+  font-family: inherit;
+  width: 255px;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: .34px;
+  text-align: center;
+  margin-bottom: 20px;
+  outline: 0;
+  cursor: pointer;
+}
+.successPopup button:hover {
+  opacity: .9;
+}
+.successPopup .submitOneMore {
+  font-size: 21px;
+}

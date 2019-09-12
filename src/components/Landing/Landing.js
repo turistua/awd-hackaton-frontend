@@ -139,9 +139,22 @@ export class Landing extends React.PureComponent {
         );
         const successCodePopup = (
             <Popup onClose={() => this.setState({showSuccessCodePopup: false})}>
-                <h1>Congratulations!</h1>
-                <p>Your code is applied successfully</p>
-                <Link to="/profile">Check your profile</Link>
+                <div className="successPopup">
+                    <h2>Unilever Code</h2>
+                    <div className="successPopupWrapper">
+                        <div className="hooray">Hooray!</div>
+                        <div className="tokensGranted">
+                            <div className="tokensAmount">50</div>
+                            <div className="tokensLabel">TreeTokens<br/>granted</div>
+                        </div>
+                        <div className="hr"></div>
+                        <button>Let's go planting</button>
+                        <div className="submitOneMore">
+                            <a href="#">Submit one more code</a>
+                        </div>
+                        {/* <Link to="/profile">Check your profile</Link> */}
+                    </div>
+                </div>
             </Popup>
         )
         return (
