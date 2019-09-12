@@ -1,33 +1,10 @@
 import React, { useState } from "react";
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import { MarkerWithLabel } from "react-google-maps/lib/components/addons/MarkerWithLabel";
+import { regions } from "components/RegionMap/RegionMap";
 
 import styles from "./mapStyles.json";
 import "./marker.css";
-
-export const markers = [
-    {
-        id: 1,
-        lat: 0.063834,
-        lng: -71.196064,
-        message: "Region name 1",
-        radius: 35
-    },
-    {
-        id: 2,
-        lat: 7.924717,
-        lng: 20.436768,
-        message: "Region name 2",
-        radius: 50
-    },
-    {
-        id: 3,
-        lat: 41.749427,
-        lng: 90.304284,
-        message: "Region name 3",
-        radius: 50
-    }
-];
 
 const defaultCenter = { lat: 25, lng: 25 };
 
@@ -57,7 +34,7 @@ const GoogleMapWithAMarker = withScriptjs(
                     }
                 }}
             >
-                {markers.map(marker => (
+                {regions.map(marker => (
                     <MarkerWithLabel
                         key={marker.lat + " " + marker.lng}
                         position={{ lat: marker.lat, lng: marker.lng }}
