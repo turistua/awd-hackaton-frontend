@@ -1,0 +1,60 @@
+.signup {
+    max-width: 375px;
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-top: 100px;
+    font-family: SFProDisplay, sans-serif;
+}
+
+.signup > input {
+    margin: 0;
+	border: 0;
+    padding: 0;
+    margin-bottom: 10px;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+	background: none;
+	line-height: 1;
+	font-size: 20px;
+    border-bottom: 2px solid #5ebe5b;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.34px;
+    outline: none;
+    text-align: center;
+    color: #5ebe5b;
+}
+
+.signup > input::placeholder {
+	font-size: 20px;
+}
+
+.signup > input:-webkit-autofill {
+	font-size: 20px;
+    color: #5ebe5b;
+    background-color: white !important;
+}
+
+button {
+    margin: 0 auto;
+    height: 55px;
+    border-radius: 10px;
+    background-color: #5ebe5b;
+    border:none;
+    color: white;
+    font-family: inherit;
+    width: 255px;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.34px;
+    text-align: center;
+    margin-bottom: 20px;
+    outline: 0;
+}

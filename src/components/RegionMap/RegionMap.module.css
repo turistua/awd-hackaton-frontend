@@ -1,0 +1,75 @@
+.map-image {
+    height: 400px;
+    background-position: center;
+}
+
+.table {
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    font-family: SFProDisplay, sans-serif;
+    max-width: 375px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    font-size: 12px;
+    letter-spacing: 0.21px;
+    color: #000000;
+    opacity: 0.44;
+    margin-bottom: 20px;
+}
+
+.header > div:nth-child(1) {
+    width: 70%;
+    text-align: left;
+}
+
+.header > div:nth-child(2) {
+    width: 30%;
+    text-align: right;
+}
+
+.region-row {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.region-row > div:nth-child(1) {
+    width: 70%;
+    text-align: left;
+}
+
+.region-row > div:nth-child(2) {
+    width: 30%;
+    text-align: right;
+}
+
+.region-name {
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.29px;
+    color: #2eab2a;
+}
+
+.region-desc {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.21px;
+    color: #000000;
+}
+
+.region-trees {
+    font-size: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+}
