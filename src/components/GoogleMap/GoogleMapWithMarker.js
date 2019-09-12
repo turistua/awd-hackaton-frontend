@@ -95,10 +95,7 @@ const GoogleMapWithAMarker = withScriptjs(
                         labelAnchor={new window.google.maps.Point(0, 0)}
                         labelStyle={{ opacity: 1 }}
                     >
-                        <div
-                            className="marker"
-                            style={{ backgroundColor: "transparent" }}
-                        >
+                        <div className="marker">
                             <span
                                 className="marker-content"
                                 style={{
@@ -108,7 +105,7 @@ const GoogleMapWithAMarker = withScriptjs(
                                     backgroundClip: 'padding-box'
                                 }}
                             >
-                                {props.view === "Home" ? "+" : "0"}
+                                {props.view === "Home" ? <div>+</div> : <div>+<div>0</div></div>}
                             </span>
                         </div>
                     </MarkerWithLabel>
