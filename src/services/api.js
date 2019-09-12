@@ -9,7 +9,7 @@ export class ApiService {
     }
 
     async plantTree(amountTrees, email, regionId) {
-        return await fetch("http://89.22.50.171:8080/api/v1/planttree", {
+        return fetch("http://89.22.50.171:8080/api/v1/planttree", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -22,8 +22,8 @@ export class ApiService {
             })
         })
             .then((res, rej) => {
-                console.log("res", res);
-                return res;
+                console.log("Planting response", res);
+                return res.json().then(data => data);
             })
             .catch(error => console.log("error", error));
     }
