@@ -23,7 +23,9 @@ export class ApiService {
         })
             .then((res, rej) => {
                 console.log("Planting response", res);
-                return res.json().then(data => data);
+                if (res.status < 500) {
+                    return res.json().then(data => data);
+                }
             })
             .catch(error => console.log("error", error));
     }

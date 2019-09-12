@@ -30,7 +30,9 @@ const PlantTree = props => {
             treeCount,
             (props.user || {}).email,
             props.router.match.params.regionId
-        ).then(data => setPlanted(true));
+        ).then(data => {
+            data && setPlanted(true);
+        });
     };
 
     const decrement = () => {
