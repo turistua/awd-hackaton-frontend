@@ -13,24 +13,24 @@ import "./marker.css";
 const markers = [
     {
         id: 1,
-        lat: 40.7484445,
-        lng: -73.9878584,
+        lat: 0.063834,
+        lng: -71.196064,
         message: "Region name 1",
-        radius: 20
+        radius: 35
     },
     {
         id: 2,
-        lat: 25.7484445,
-        lng: 22.9878584,
+        lat: 7.924717, 
+        lng: 20.436768,
         message: "Region name 2",
-        radius: 40
+        radius: 50
     },
     {
         id: 3,
-        lat: 25.7484445,
-        lng: 76.9878584,
+        lat: 41.749427,
+        lng: 90.304284,
         message: "Region name 3",
-        radius: 30
+        radius: 50
     }
 ];
 
@@ -63,7 +63,7 @@ const GoogleMapWithAMarker = withScriptjs(
                 defaultOptions={{
                     disableDefaultUI: true, // disable default map UI
                     draggable: true, // make map draggable
-                    keyboardShortcuts: true, // disable keyboard shortcuts
+                    keyboardShortcuts: false, // disable keyboard shortcuts
                     scaleControl: true, // allow scale controle
                     scrollwheel: false, // allow scroll wheel
                     styles: styles, // change default map styles
