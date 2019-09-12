@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Landing.module.css';
 import { Paginator } from 'components/Paginator/Paginator';
-import logoLink from 'img/Unilever.svg';
+import logoLink from 'img/unilever.png';
 import { RegionMap } from 'components/RegionMap/RegionMap';
 import { Popup } from 'components/Popup/Popup';
 import { Link, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoins } from '@fortawesome/free-solid-svg-icons'
+import { faCoins } from '@fortawesome/free-solid-svg-icons';
+import backgroundVideoUrl from "video/tree.mp4";
 
 const planters = [
     {
@@ -99,7 +100,13 @@ export class Landing extends React.PureComponent {
             <div>
                 {user ? navbarUser() : navbar}
                 <div className={styles.hero}>
-                    <div className={styles.background}></div>
+
+                    <div className={styles.videoBlock}>
+                        <video width="1280" height="720" autoplay="autoplay" loop muted>
+                            <source src={backgroundVideoUrl} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                     <div className={styles.front}>
                         <img className={styles['unilever-logo']} src={logoLink} alt="Unilever logo" />
                         <p className={styles.slogan}>Let’s Fight Deforestation</p>
