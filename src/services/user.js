@@ -3,11 +3,12 @@
 export const mockUsers = [
     {
         email: 'test@test.com',
-        fullName: 'Mark Stevens',
+        firstName: 'Mark',
+        lastName: 'Stevens',
         badge: 'Starter',
         treesTillLevel: 15,
-        tokens: 155,
-        avatarUrl: 'https://i.pravatar.cc/300?img=10',
+        balance: 155,
+        avatarUrl: 'https://i.pravatar.cc/300?img=11',
         achievements: [],
         statistic: {},
     }
@@ -23,11 +24,11 @@ export class UserService {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
-            }
+            },
         })
             .then((res, rej) => {
-                console.log("profile", res);
-                return res;
+                // console.log("profile", res);
+                return res.json().then(data => data);
             })
             .catch(error =>
                 console.log(
@@ -67,7 +68,7 @@ export class UserService {
     }
 
     login(email) {
-        fetch(`http://89.22.50.171:8080/api/v1/login?login=${email}`, {
+        return fetch(`http://89.22.50.171:8080/api/v1/login?login=${email}`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -84,9 +85,20 @@ export class UserService {
     async signin(email, password) {
         const isLogin = await this.login(email);
         if (isLogin) {
-            const user = this.getProfile(email);
-            this.currentUser = user;
-            return user;
+            const user = await this.getProfile(email);
+            const profile = user.profile;
+            this.currentUser = {
+                email,
+                balance: profile.balance,
+                fistName: profile.firstName,
+                lastName: profile.lastName,
+                badge: 'starter',
+                treesTillLevel: 15,
+                avatarUrl: 'https://i.pravatar.cc/300?img=11',
+                achievements: [],
+                statistic: {},
+            };
+            return this.currentUser;
         }
         return null;
     }
