@@ -414,6 +414,7 @@
     background: #bbb;
     margin: 0 auto;
     margin-bottom: 10px;
+    background-size: cover;
 }
 
 .planters .name {

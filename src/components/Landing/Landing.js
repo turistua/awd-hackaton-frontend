@@ -13,19 +13,19 @@ import backgroundVideoUrl from "video/tree.mp4";
 
 const planters = [
     {
-        avatar: '',
+        avatar: 'https://i.pravatar.cc/300?img=20',
         name: 'Alexandra',
         trees: 147,
     },
     {
-        avatar: '',
+        avatar: 'https://i.pravatar.cc/300?img=51',
         name: 'John',
-        trees: 14,
+        trees: 121,
     },
     {
-        avatar: '',
-        name: 'John Smith',
-        trees: 10,
+        avatar: 'https://i.pravatar.cc/300?img=58',
+        name: 'Michael',
+        trees: 119,
     },
 ];
 
