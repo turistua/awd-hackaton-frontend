@@ -204,7 +204,7 @@ export class Landing extends React.PureComponent {
                                 <div className={styles.current} style={{
                                     width: '20%',
                                 }}></div>
-                                <span>1st goal: 1 000 000 trees</span>
+                                <span style={{zIndex: 2}}>1st goal: 1 000 000 trees</span>
                             </div>
                             <div className={styles.info}>
                                 The loss of trees and other vegetation can cause climate change, desertification, soil erosion, fewer crops, flooding, increased greenhouse gases in the atmosphere, and a host of problems for indigenous people.
