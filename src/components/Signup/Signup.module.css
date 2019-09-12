@@ -23,6 +23,7 @@
 }
 
 .signup > fieldset input[type=text],
+.signup > fieldset input[type=password],
 .signup > fieldset input[type=email] {
   margin: 0 0 15px 0;
   border: 0;
@@ -50,12 +51,14 @@
 
 
 .signup > fieldset input[type=text]::placeholder,
+.signup > fieldset input[type=password]::placeholder,
 .signup > fieldset input[type=email]::placeholder {
   font-size: 16px;
   color: rgba(0,0,0,.5);
 }
 
 .signup > fieldset input[type=text]:-webkit-autofill,
+.signup > fieldset input[type=password]:-webkit-autofill,
 .signup > fieldset input[type=email]:-webkit-autofill {
   font-size: 20px;
   color: #5ebe5b;
