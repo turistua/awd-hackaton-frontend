@@ -109,7 +109,15 @@
 }
 
 .backButton {
+    position: absolute;
+    width: 12px;
+    text-align: left;
+    color: #5ebe5b;
+}
 
+.backButton img {
+    width: 12px;
+    fill: #5ebe5b;
 }
 
 .achivements-table {

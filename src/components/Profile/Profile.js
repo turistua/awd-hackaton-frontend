@@ -2,10 +2,12 @@ import React from 'react';
 import styles from './Profile.module.css';
 import oxygenImg from 'img/oxygen.svg';
 import coImg from 'img/co2.svg';
+import backButtonImg from 'img/back-button.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { withRouter } from 'react-router-dom';
 
-export class ProfilePage extends React.PureComponent {
+class ProfilePageBase extends React.PureComponent {
 
     render() {
         const { user } = this.props;
@@ -35,8 +37,10 @@ export class ProfilePage extends React.PureComponent {
         ) : null
         return (
             <div>
-                <div className={styles.backButton}></div>
                 <div className={styles['info-block']}>
+                    <div className={styles.backButton} onClick={this.props.history.goBack}>
+                        <img src={backButtonImg}/>
+                    </div>
                     <div className={styles.avatar} style={{
                         backgroundImage: `url(${user.avatarUrl})`,
                     }}></div>
@@ -92,3 +96,5 @@ export class ProfilePage extends React.PureComponent {
     }
 
 }
+
+export const ProfilePage = withRouter(ProfilePageBase);
