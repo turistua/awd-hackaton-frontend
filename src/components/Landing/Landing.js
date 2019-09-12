@@ -10,6 +10,7 @@ import { Link, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import backgroundVideoUrl from "video/tree.mp4";
+import { Donate } from 'components/Donate/Donate';
 import programme1 from 'img/e-sdg-goals-icons-individual-rgb-13-tcm-244-520347@2x.png';
 import programme2 from 'img/e-sdg-goals-icons-individual-rgb-15-tcm-244-520349@2x.png';
 import programme3 from 'img/e-sdg-goals-icons-individual-rgb-17-tcm-244-520352@2x.png';
@@ -51,7 +52,8 @@ export class Landing extends React.PureComponent {
             showSignUpPopup: false,
             regionId: '',
             message: '',
-            treeCount: 0
+            treeCount: 0,
+            showDonatePopup: false,
         };
     }
 
@@ -132,6 +134,11 @@ export class Landing extends React.PureComponent {
                 }} />
             </Popup>
         );
+        const donatePopup = (
+            <Popup onClose={() => this.setState({showDonatePopup: false})}>
+                <Donate userService={this.props.userService}/>
+            </Popup>
+        );
         const codePopup = (
             <Route path="redeem">
                 <div style={{
@@ -195,7 +202,7 @@ export class Landing extends React.PureComponent {
                         </button>
                         <div className={styles.donate}>
                             <p>Want to participate without Unilever code?</p>
-                            <a href='#'>Donate and plant trees</a>
+                            <a href='#' onClick={() => this.setState({ showDonatePopup: true })}>Donate and plant trees</a>
                         </div>
                         <div className={styles['info-block']}>
                             <p className={styles['trees-planted']}>{treesPlanted}</p>
@@ -283,6 +290,7 @@ export class Landing extends React.PureComponent {
                 {this.state.showSuccessCodePopup ? successCodePopup : null}
                 {this.state.showSignInPopup ? signInPopup : null}
                 {this.state.showSignUpPopup ? signUpPopup : null}
+                {this.state.showDonatePopup ? donatePopup : null}
             </div>
         )
     }
