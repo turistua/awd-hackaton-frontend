@@ -16,7 +16,6 @@ const markers = [
         lat: 40.7484445,
         lng: -73.9878584,
         message: "Region name 1",
-        color: "orange",
         radius: 20
     },
     {
@@ -24,7 +23,6 @@ const markers = [
         lat: 25.7484445,
         lng: 22.9878584,
         message: "Region name 2",
-        color: "red",
         radius: 40
     },
     {
@@ -32,7 +30,6 @@ const markers = [
         lat: 25.7484445,
         lng: 76.9878584,
         message: "Region name 3",
-        color: "pink",
         radius: 30
     }
 ];
@@ -105,11 +102,10 @@ const GoogleMapWithAMarker = withScriptjs(
                             <span
                                 className="marker-content"
                                 style={{
-                                    border: `${marker.radius}px solid ${marker.color}`,
-                                    backgroundColor:
-                                        props.view === "Home"
-                                            ? "#5ebe5b"
-                                            : marker.color
+                                    border: `${marker.radius}px solid`,
+                                    borderColor: 'rgba(234, 178, 56, .5)',
+                                    backgroundColor: "#5ebe5b",
+                                    backgroundClip: 'padding-box'
                                 }}
                             >
                                 {props.view === "Home" ? "+" : "0"}

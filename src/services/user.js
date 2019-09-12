@@ -38,7 +38,7 @@ export class UserService {
     }
 
     register(email, firstName, lastName) {
-        fetch("http://89.22.50.171/api/v1/reg", {
+        fetch("http://89.22.50.171:8080/api/v1/reg", {
             method: "POST",
             headers: {
                 Accept: "application/json",

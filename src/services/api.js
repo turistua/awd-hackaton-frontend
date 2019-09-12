@@ -9,7 +9,7 @@ export class ApiService {
     }
 
     async plantTree(amountTrees, email, regionId) {
-        return await fetch("http://89.22.50.171/api/v1/planttree", {
+        return await fetch("http://89.22.50.171:8080/api/v1/planttree", {
             method: "POST",
             headers: {
                 Accept: "application/json",
