@@ -92,14 +92,16 @@ export class Landing extends React.PureComponent {
             </div>
         );
         const navbarUser = () => (
-            <div className={styles.navbar}>
-                <div className={styles.buttons}>
-                    <Link to="/profile">Profile</Link>
-                    <Link to="/signout">Signout</Link>
-                    <div>
+            <div className={styles.navbarNewWrapper}>
+                <div className={styles.navbarNew}>
+                    <Link className={styles.button} to="/signout">Signout</Link>
+                    <div className={styles.stat}>
                         <span><FontAwesomeIcon icon={faCoins} />{user.balance} Tree Tokens</span>
-                        <span> •</span>
+                        <span> • </span>
                         <span>{user.trees} trees</span>
+                    </div>
+                    <div className={styles.avatar}>
+                        <Link to="/profile"><img src={user.avatarUrl} /></Link>
                     </div>
                 </div>
             </div>

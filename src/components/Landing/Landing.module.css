@@ -153,7 +153,7 @@
 
 .submit {
     height: 55px;
-    border-radius: 10px;
+    border-radius: 4px;
     background-color: #5ebe5b;
     border:none;
     color: white;
@@ -363,12 +363,13 @@
     width: 100%;
     padding: 0 25px;
     box-sizing: border-box;
+    padding-top: 40px;
 }
 
 .map-container {
     width: 100%;
     background-color: #e7e7e7;
-    padding-top: 380px;
+    padding-top: 470px;
     padding-bottom: 40px;
 }
 
@@ -489,3 +490,60 @@
     list-style: none;
 }
 
+.navbarNewWrapper {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5)
+}
+
+.navbarNew {
+    height: 40px;
+    max-width: 375px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.navbarNew > *:not(:last-child) {
+    margin-right: 10px;
+}
+
+.navbarNew .button {
+    font-family: SFProDisplay;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.26px;
+    text-align: right;
+    color: #ffffff;
+    opacity: 0.69;
+    margin-right: 90px;
+}
+
+.navbarNew .stat {
+    font-family: SFProDisplay;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.26px;
+    text-align: right;
+    color: #ffffff;
+    opacity: 0.69;
+}
+
+.navbarNew .avatar img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
