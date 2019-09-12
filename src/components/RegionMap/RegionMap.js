@@ -39,14 +39,12 @@ export class RegionMap extends React.PureComponent {
         }
     }
 
-    handleMarkerClick = (message, lang, lat, regionId) => {
-        this.setState({
-            infoboxMessage: message,
-            isInfoboxVisible: !this.state.isInfoboxVisible,
-            markerLang: -25,
-            markerLang: -30,
-            markerLat: lat,
-            regionId
+    handleMarkerClick = (message, regionId) => {
+        this.props.handleMapMarkerClick({
+            showMapPopup: true,
+            regionId,
+            message,
+            treeCount: 0
         })
     }
 
@@ -73,9 +71,6 @@ export class RegionMap extends React.PureComponent {
                         infoboxPosY={this.state.markerLang}
                         infoboxPosX={this.state.markerLat}
                         regionId={this.state.regionId}
-                        plantTree={(amountTrees, email, regionId) => this.props.apiService.plantTree(amountTrees, this.props.user.email, regionId).then((response) => {
-                            console.log('planted', response);
-                        })}
                         view='Home'
                     />
                 </div>

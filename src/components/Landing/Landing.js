@@ -31,6 +31,10 @@ const planters = [
 
 const INFO_BLOCK_PAGES_TOTAL = 3;
 
+const tokensToTrees = tokens => {
+    return tokens * 2;
+};
+
 export class Landing extends React.PureComponent {
 
     constructor(props) {
@@ -40,7 +44,11 @@ export class Landing extends React.PureComponent {
             infoBlockPage: 0,
             showSuccessCodePopup: false,
             showSignInPopup: false,
-            showSignUpPopup: false
+            showSignUpPopup: false,
+            showMapPopup: false,
+            regionId: '',
+            message: '',
+            treeCount: 0
         };
     }
 
@@ -60,6 +68,17 @@ export class Landing extends React.PureComponent {
             showSuccessCodePopup: true,
         });
     }
+
+    tokensRef = React.createRef();
+    plantTree = e => {
+        e.preventDefault();
+        const tokens = this.tokensRef.current.value;
+        if (!tokens) {
+            console.error("no tokens");
+            return;
+        }
+        this.props.apiService.plantTree(tokensToTrees(tokens), this.props.user.email, this.props.regionId);
+    };
 
     render = () => {
         const {treesPlanted} = this.props.data;
@@ -98,6 +117,27 @@ export class Landing extends React.PureComponent {
                                     this.setState({user});
                                 })
                 } />
+            </Popup>
+        );
+        const plantTreePopup = (
+            <Popup onClose={() => this.setState({showMapPopup: false})}>
+                <div className="plant-tree-container">
+                    <h4>{this.state.message}</h4>
+                    <form autoComplete="off">
+                        <input
+                            ref={this.tokensRef}
+                            name="tokens"
+                            type="number"
+                            onChange={(e) => this.setState({treeCount: tokensToTrees(e.target.value)})}
+                            placeholder="Tokens to convert to trees"
+                            min={1}
+                        ></input>
+                        <span>
+                            You will plant {this.state.treeCount} trees
+                        </span>
+                        <button onClick={this.plantTree}>Plant</button>
+                    </form>
+                </div>
             </Popup>
         );
         const codePopup = (
@@ -179,7 +219,11 @@ export class Landing extends React.PureComponent {
                     </div>
                 </div>
                 <div className={styles['map-container']}>
-                    <RegionMap apiService={this.props.apiService} user={this.props.user}/>
+                    <RegionMap 
+                        apiService={this.props.apiService} 
+                        user={this.props.user}
+                        handleMapMarkerClick={(data) => this.setState(data)}
+                    />
                 </div>
                 <div className={styles.planters}>
                     <p className={styles.heading}>Top tree planters</p>
@@ -219,6 +263,7 @@ export class Landing extends React.PureComponent {
                 {this.state.showSuccessCodePopup ? successCodePopup : null}
                 {this.state.showSignInPopup ? signInPopup : null}
                 {this.state.showSignUpPopup ? signUpPopup : null}
+                {this.state.showMapPopup ? plantTreePopup : null}
             </div>
         )
     }
