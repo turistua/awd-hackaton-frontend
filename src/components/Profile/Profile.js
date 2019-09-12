@@ -23,14 +23,14 @@ export class ProfilePage extends React.PureComponent {
                     <div className={styles.avatar} style={{
                         backgroundImage: `url(${user.avatarUrl})`,
                     }}></div>
-                    <div className={styles.name}>{user.fullName}</div>
+                    <div className={styles.name}>{user.firstName + ' ' + user.lastName}</div>
                     <div className={styles.badge}>{user.badge}</div>
                     <div className={styles['level-breakdown']}>{user.treesTillLevel} trees till the next level</div>
                     {achivementsTable}
                     <div className={styles.separator}></div>
                     <div className={styles['tokens-block']}>
                         <div className={styles.balance}>
-                            <div className={styles['tokens-count']}>{user.tokens}</div>
+                            <div className={styles['tokens-count']}>{user.balance}</div>
                             <div className={styles['tokens-add-button']}></div>
                         </div>
                         <div className={styles.label}>TreeTokens</div>

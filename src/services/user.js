@@ -3,19 +3,21 @@
 export const mockUsers = [
     {
         email: 'test@test.com',
-        fullName: 'Mark Stevens',
+        firstName: 'Mark',
+        lastName: 'Stevens',
         badge: 'Starter',
         treesTillLevel: 15,
-        tokens: 155,
-        avatarUrl: 'https://i.pravatar.cc/300?img=10',
+        balance: 155,
+        avatarUrl: 'https://i.pravatar.cc/300?img=11',
         achievements: [],
         statistic: {},
+        trees: 7,
     }
 ]
 
 export class UserService {
 
-    currentUser = mockUsers[0];
+    currentUser = null;
 
     async getProfile(email) {
         return await fetch(`http://89.22.50.171:8080/api/v1/getprofile?login=${email}`, {
@@ -23,11 +25,11 @@ export class UserService {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
-            }
+            },
         })
             .then((res, rej) => {
-                console.log("profile", res);
-                return res;
+                // console.log("profile", res);
+                return res.json().then(data => data);
             })
             .catch(error =>
                 console.log(
@@ -37,8 +39,8 @@ export class UserService {
             );
     }
 
-    register(email, firstName, lastName) {
-        fetch("http://89.22.50.171:8080/api/v1/reg", {
+    async register(email, firstName, lastName) {
+        return fetch("http://89.22.50.171:8080/api/v1/reg", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -51,23 +53,41 @@ export class UserService {
             })
         })
             .then((res, rej) => {
-                console.log("res", res);
-                return res;
+                console.log("Registration response", res);
+                return res.json().then(data => data);
             })
             .catch(error => console.log("error", error));
     }
 
-    async signup(email, firstName, lastName) {
-        const registeredUser = this.register(email, firstName, lastName);
+    async signup(email, firstName, lastName, password) {
+        const registeredUser = await this.register(email, firstName, lastName);
         if (registeredUser) {
             this.currentUser = registeredUser;
-            return registeredUser;
+            const profile = registeredUser.userAccount;
+            if (!profile) {
+                console.warn('User already exists or server problem');
+                return null;
+            }
+            this.currentUser = {
+                email,
+                balance: profile.balance,
+                firstName: profile.firstName,
+                lastName: profile.lastName,
+                badge: 'starter',
+                treesTillLevel: 15,
+                avatarUrl: 'https://i.pravatar.cc/300?img=11',
+                achievements: [],
+                statistic: {},
+                trees: 7,
+            };
+            return this.currentUser;
         }
+        console.warn('Server problem on registration');
         return null;
     }
 
     login(email) {
-        fetch(`http://89.22.50.171:8080/api/v1/login?login=${email}`, {
+        return fetch(`http://89.22.50.171:8080/api/v1/login?login=${email}`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -75,7 +95,7 @@ export class UserService {
             }
         })
             .then((res, rej) => {
-                console.log("res", res);
+                console.log("Login response", res);
                 return true;
             })
             .catch(error => console.log("error", error));
@@ -84,9 +104,24 @@ export class UserService {
     async signin(email, password) {
         const isLogin = await this.login(email);
         if (isLogin) {
-            const user = this.getProfile(email);
-            this.currentUser = user;
-            return user;
+            const user = await this.getProfile(email);
+            const profile = user.profile;
+            if (!profile) {
+                return null;
+            }
+            this.currentUser = {
+                email,
+                balance: profile.balance,
+                firstName: profile.firstName,
+                lastName: profile.lastName,
+                badge: 'starter',
+                treesTillLevel: 15,
+                avatarUrl: 'https://i.pravatar.cc/300?img=11',
+                achievements: [],
+                statistic: {},
+                trees: 7,
+            };
+            return this.currentUser;
         }
         return null;
     }

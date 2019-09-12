@@ -42,6 +42,18 @@ class App extends React.PureComponent {
                                     await this.apiService.submitCode(this.state.code);
                                 }}
                                 router={router}
+                                onSignin={(email, password) => {
+                                    this.userService.signin(email, password)
+                                        .then((user) => {
+                                            this.setState({user});
+                                        })
+                                }}
+                                onSignup={(email, firstName, lastName, password) => {
+                                    this.userService.signup(email, firstName, lastName, password)
+                                        .then(user => {
+                                            this.setState({user});
+                                        })
+                                }}
                                 />
                         )
                     }}/>

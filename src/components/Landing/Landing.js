@@ -96,26 +96,34 @@ export class Landing extends React.PureComponent {
                 <div className={styles.buttons}>
                     <Link to="/profile">Profile</Link>
                     <Link to="/signout">Signout</Link>
-                    <div><FontAwesomeIcon icon={faCoins} />{user.tokens}</div>
+                    <div>
+                        <span><FontAwesomeIcon icon={faCoins} />{user.balance} Tree Tokens</span>
+                        <span> •</span>
+                        <span>{user.trees} trees</span>
+                    </div>
                 </div>
             </div>
         );
         const signInPopup = (
             <Popup onClose={() => this.setState({showSignInPopup: false})}>
-                <Signin onSubmit={
-                    (email, password) => this.props.userService.signin(email, password)
-                    .then((user) => this.setState({user}))
-                }/>
+                <Signin onSubmit={(email, password) => {
+                    this.props.onSignin(email, password)
+                    this.setState({
+                        showSignInPopup: false,
+                        showSignUpPopup: false,
+                    });
+                }}/>
             </Popup>
         );
         const signUpPopup = (
             <Popup onClose={() => this.setState({showSignUpPopup: false})}>
-                <Signup onSubmit={(email, firstName, lastName) =>
-                            this.props.userService.signup(email, firstName, lastName)
-                                .then(user => {
-                                    this.setState({user});
-                                })
-                } />
+                <Signup onSubmit={(email, firstName, lastName, password) => {
+                    this.props.onSignup(email, firstName, lastName, password)
+                    this.setState({
+                        showSignInPopup: false,
+                        showSignUpPopup: false,
+                    });
+                }} />
             </Popup>
         );
         const codePopup = (
@@ -206,8 +214,8 @@ export class Landing extends React.PureComponent {
                     </div>
                 </div>
                 <div className={styles['map-container']}>
-                    <RegionMap 
-                        apiService={this.props.apiService} 
+                    <RegionMap
+                        apiService={this.props.apiService}
                         user={this.props.user}
                         handleMapMarkerClick={(data) => this.setState(data)}
                         router={this.props.router}
