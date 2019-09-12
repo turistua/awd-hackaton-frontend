@@ -24,9 +24,9 @@ export class Signin extends React.PureComponent {
             <form className={styles.signin} autoComplete="off">
                 <h2>Sign in</h2>
                 <fieldset>
-                    <label for="email">E-mail</label>
+                    <label htmlFor="email">E-mail</label>
                     <input ref={this.emailRef} name="email" type="email" id="email" placeholder="Enter your E-mail"></input>
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input ref={this.passwordRef} name="password" id="password" type="password" placeholder="Enter Password"></input>
                     <div className={styles.hr}></div>
                     <button onClick={this.onSubmit}>Sign in</button>

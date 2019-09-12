@@ -272,7 +272,7 @@ export class Landing extends React.PureComponent {
                         })
                     }
                     </div>
-                    <div class={styles.button}>
+                    <div className={styles.button}>
                         Show all planters
                     </div>
                 </div>
