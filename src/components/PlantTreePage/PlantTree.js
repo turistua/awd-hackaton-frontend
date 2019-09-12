@@ -45,7 +45,7 @@ const PlantTree = props => {
                 }
             </div>
             <h2>PLANT TREES</h2>
-            <h4>You have {(props.user || {}).tokens} TreeTokens</h4>
+            <h4>You have {(props.user || {}).balance} TreeTokens</h4>
             <div>
                 <span onClick={() => decrement()}>-</span>
                 {treeCount}
