@@ -97,7 +97,11 @@ export class Landing extends React.PureComponent {
                 <div className={styles.buttons}>
                     <Link to="/profile">Profile</Link>
                     <Link to="/signout">Signout</Link>
-                    <div><FontAwesomeIcon icon={faCoins} />{user.balance}</div>
+                    <div>
+                        <span><FontAwesomeIcon icon={faCoins} />{user.balance} Tree Tokens</span>
+                        <span> •</span>
+                        <span>{user.trees} trees</span>
+                    </div>
                 </div>
             </div>
         );
@@ -114,7 +118,13 @@ export class Landing extends React.PureComponent {
         );
         const signUpPopup = (
             <Popup onClose={() => this.setState({showSignUpPopup: false})}>
-                <Signup onSubmit={this.props.onSignup} />
+                <Signup onSubmit={(email, firstName, lastName, password) => {
+                    this.props.onSignup(email, firstName, lastName, password)
+                    this.setState({
+                        showSignInPopup: false,
+                        showSignUpPopup: false,
+                    });
+                }} />
             </Popup>
         );
         const plantTreePopup = (

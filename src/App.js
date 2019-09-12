@@ -46,8 +46,8 @@ class App extends React.PureComponent {
                                             this.setState({user});
                                         })
                                 }}
-                                onSignup={(email, firstName, lastName) => {
-                                    this.userService.signup(email, firstName, lastName)
+                                onSignup={(email, firstName, lastName, password) => {
+                                    this.userService.signup(email, firstName, lastName, password)
                                         .then(user => {
                                             this.setState({user});
                                         })

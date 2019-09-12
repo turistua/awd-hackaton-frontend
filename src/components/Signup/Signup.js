@@ -6,12 +6,14 @@ export class Signup extends React.PureComponent {
     emailRef = React.createRef();
     firstNameRef = React.createRef();
     lastNameRef = React.createRef();
+    passwordRef = React.createRef();
 
     onSubmit = (e) => {
         e.preventDefault();
         const email = this.emailRef.current.value;
         const firstName = this.firstNameRef.current.value;
         const lastName = this.lastNameRef.current.value;
+        const password = this.passwordRef.current.value;
         if (!email) {
             console.error('no email');
         }
@@ -21,7 +23,10 @@ export class Signup extends React.PureComponent {
         if (!lastName) {
             console.error('no last name');
         }
-        this.props.onSubmit(email, firstName, lastName);
+        if (!password) {
+            console.error('no password');
+        }
+        this.props.onSubmit(email, firstName, lastName, password);
     }
 
     render() {
@@ -30,6 +35,7 @@ export class Signup extends React.PureComponent {
                 <input ref={this.emailRef} type="email" name="email" placeholder="Your email"></input>
                 <input ref={this.firstNameRef} type="text" name="firstName" placeholder="Your first name"></input>
                 <input ref={this.lastNameRef} type="text" name="lastName" placeholder="Your last name"></input>
+                <input ref={this.passwordRef} type="password" name="password" placeholder="Your password"></input>
                 <button onClick={this.onSubmit}>Signup</button>
             </form>
         )
