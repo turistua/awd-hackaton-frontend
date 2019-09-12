@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Profile.module.css';
 import oxygenImg from 'img/oxygen.svg';
 import coImg from 'img/co2.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
 export class ProfilePage extends React.PureComponent {
 
@@ -69,7 +71,10 @@ export class ProfilePage extends React.PureComponent {
                                 <div className={styles.description}>Kg of carbon dioxide will be absorbed in next 10 years</div>
                             </div>
                         </div>
-                        <div className={styles.shareButton}>Share</div>
+                        <div className={styles.shareButton}>
+                            <FontAwesomeIcon icon={faShareAlt} />
+                            <span>Share</span>
+                        </div>
                     </div>
                 </div>
             </div>
