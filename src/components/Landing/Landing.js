@@ -10,6 +10,10 @@ import { Link, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import backgroundVideoUrl from "video/tree.mp4";
+import programme1 from 'img/e-sdg-goals-icons-individual-rgb-13-tcm-244-520347@2x.png';
+import programme2 from 'img/e-sdg-goals-icons-individual-rgb-15-tcm-244-520349@2x.png';
+import programme3 from 'img/e-sdg-goals-icons-individual-rgb-17-tcm-244-520352@2x.png';
+import { Footer } from 'components/Footer/Footer';
 
 const planters = [
     {
@@ -266,11 +270,12 @@ export class Landing extends React.PureComponent {
                         Unilever supports the following UN Sustainable Development Goals
                     </p>
                     <ul className={styles.list}>
-                        <li><a></a></li>
-                        <li><a></a></li>
-                        <li><a></a></li>
+                        <li><img src={programme1} alt="Sustainable development goals"/></li>
+                        <li><img src={programme2} alt="Sustainable development goals" /></li>
+                        <li><img src={programme3} alt="Sustainable development goals" /></li>
                     </ul>
                 </div>
+                <Footer />
                 {this.state.showSuccessCodePopup ? successCodePopup : null}
                 {this.state.showSignInPopup ? signInPopup : null}
                 {this.state.showSignUpPopup ? signUpPopup : null}

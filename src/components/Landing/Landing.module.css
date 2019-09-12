@@ -491,6 +491,11 @@
     list-style: none;
 }
 
+.goals img {
+    width: 80px;
+    height: 80px;
+}
+
 .navbarNewWrapper {
     width: 100%;
     position: absolute;

@@ -1,0 +1,38 @@
+.footer {
+    padding: 30px 25px;
+    background-color: #f2f2f2;
+}
+
+.footerBlock {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 375px;
+}
+
+.footer .copyright {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.21px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.footer .links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer a {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.21px;
+    color: #000000;
+}
