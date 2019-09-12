@@ -4,6 +4,8 @@ import { Paginator } from 'components/Paginator/Paginator';
 import logoLink from 'img/unilever.png';
 import { RegionMap } from 'components/RegionMap/RegionMap';
 import { Popup } from 'components/Popup/Popup';
+import { Signin } from 'components/Signin/Signin';
+import { Signup } from 'components/Signup/Signup';
 import { Link, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
@@ -37,6 +39,8 @@ export class Landing extends React.PureComponent {
             code: '',
             infoBlockPage: 0,
             showSuccessCodePopup: false,
+            showSignInPopup: false,
+            showSignUpPopup: false
         };
     }
 
@@ -64,8 +68,8 @@ export class Landing extends React.PureComponent {
         const navbar = (
             <div className={styles.navbar}>
                 <div className={styles.buttons}>
-                    <Link to="/signup">Register</Link>
-                    <Link to="/signin">Login</Link>
+                    <a onClick={() => this.setState({ showSignUpPopup: true })}>Register</a>
+                    <a onClick={() => this.setState({ showSignInPopup: true })}>Login</a>
                 </div>
             </div>
         );
@@ -77,6 +81,24 @@ export class Landing extends React.PureComponent {
                     <div><FontAwesomeIcon icon={faCoins} />{user.tokens}</div>
                 </div>
             </div>
+        );
+        const signInPopup = (
+            <Popup onClose={() => this.setState({showSignInPopup: false})}>
+                <Signin onSubmit={
+                    (email, password) => this.props.userService.signin(email, password)
+                    .then((user) => this.setState({user}))
+                }/>
+            </Popup>
+        );
+        const signUpPopup = (
+            <Popup onClose={() => this.setState({showSignUpPopup: false})}>
+                <Signup onSubmit={(email, firstName, lastName) =>
+                            this.props.userService.signup(email, firstName, lastName)
+                                .then(user => {
+                                    this.setState({user});
+                                })
+                } />
+            </Popup>
         );
         const codePopup = (
             <Route path="redeem">
@@ -102,7 +124,7 @@ export class Landing extends React.PureComponent {
                 <div className={styles.hero}>
 
                     <div className={styles.videoBlock}>
-                        <video width="1280" height="720" autoplay="autoplay" loop muted>
+                        <video width="1280" height="720" autoPlay="autoplay" loop muted>
                             <source src={backgroundVideoUrl} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -195,6 +217,8 @@ export class Landing extends React.PureComponent {
                     </ul>
                 </div>
                 {this.state.showSuccessCodePopup ? successCodePopup : null}
+                {this.state.showSignInPopup ? signInPopup : null}
+                {this.state.showSignUpPopup ? signUpPopup : null}
             </div>
         )
     }
