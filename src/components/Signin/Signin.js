@@ -22,9 +22,18 @@ export class Signin extends React.PureComponent {
     render = () => {
         return (
             <form className={styles.signin} autoComplete="off">
-                <input ref={this.emailRef} name="email" type="email" placeholder="Type your email..."></input>
-                <input ref={this.passwordRef} name="password" type="password" placeholder="Type your password..."></input>
-                <button onClick={this.onSubmit}>Signin</button>
+                <h2>Sign in</h2>
+                <fieldset>
+                    <label for="email">E-mail</label>
+                    <input ref={this.emailRef} name="email" type="email" id="email" placeholder="Enter your E-mail"></input>
+                    <label for="password">Password</label>
+                    <input ref={this.passwordRef} name="password" id="password" type="password" placeholder="Enter Password"></input>
+                    <div className={styles.hr}></div>
+                    <button onClick={this.onSubmit}>Sign in</button>
+                    <div className={styles.haveaccount}>Don't have account? <a href="#">Sign up</a></div>
+                    <div className={styles.or}>or</div>
+                    <button className={styles.facebook}>Sign in with Facebook</button>
+                </fieldset>
             </form>
         )
     }
