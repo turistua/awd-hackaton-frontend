@@ -166,6 +166,25 @@ export class UserService {
             .catch(error => console.log("error", error));
     }
 
+    async donate(amount) {
+        return fetch("http://89.22.50.171:8080/api/v1/user", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: this.currentUser.email,
+                amount,
+            })
+        })
+            .then((res, rej) => {
+                console.log("Donate", res);
+                return res;
+            })
+            .catch(error => console.log("error", error));
+    }
+
     logout() {
         this.currentUser = null;
     }
