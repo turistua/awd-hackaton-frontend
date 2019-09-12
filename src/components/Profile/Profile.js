@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './Profile.module.css';
+import oxygenImg from 'img/oxygen.svg';
+import coImg from 'img/co2.svg';
 
 export class ProfilePage extends React.PureComponent {
 
@@ -47,6 +49,27 @@ export class ProfilePage extends React.PureComponent {
                             <div className={styles['tokens-add-button']}></div>
                         </div>
                         <div className={styles.label}>TreeTokens</div>
+                    </div>
+                </div>
+                <div className={styles.statistics}>
+                    <div className={styles.statBlock}>
+                        <h1>You planted</h1>
+                        <div className={styles.treesCount}>{user.trees}</div>
+                        <div className={styles.treesLabel}>Trees</div>
+                        <div className={styles.separator}></div>
+                        <div className={styles.facts}>
+                            <div>
+                                <div className={styles.img}><img src={oxygenImg} alt="oxygen"/></div>
+                                <div className={styles.number}>42 354 100</div>
+                                <div className={styles.description}>Kg of oxigen will be produced in next 10 years</div>
+                            </div>
+                            <div>
+                                <div className={styles.img}><img src={coImg} alt="co2"/></div>
+                                <div className={styles.number}>56 329 570</div>
+                                <div className={styles.description}>Kg of carbon dioxide will be absorbed in next 10 years</div>
+                            </div>
+                        </div>
+                        <div className={styles.shareButton}>Share</div>
                     </div>
                 </div>
             </div>

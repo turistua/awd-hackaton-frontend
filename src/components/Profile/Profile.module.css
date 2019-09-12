@@ -153,3 +153,111 @@
     text-align: center;
     color: #676767;
 }
+
+.statistics {
+    background-color: #f2f2f2;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.statistics .statBlock {
+    font-family: DIN2014-Demi, SFProDisplay, Arial, Helvetica, sans-serif;
+    max-width: 345px;
+    margin: 0 auto;
+    padding: 25px;
+    padding-top: 40px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.statBlock h1 {
+    text-transform: uppercase;
+    font-size: 21px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.36px;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.treesCount {
+    font-size: 48px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+}
+
+.treesLabel {
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.29px;
+    text-align: center;
+    color: #676767;
+    margin-bottom: 30px;
+}
+
+.statBlock .facts {
+    display: flex;
+}
+
+.statBlock .facts div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statBlock .facts div .img {
+    margin-bottom: 10px;
+}
+
+.statBlock .facts div .number {
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.33px;
+    text-align: center;
+    color: #000000;
+}
+
+.statBlock .facts div .number {
+    font-family: DIN2014-Demi, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.33px;
+    text-align: center;
+    color: #000000;
+    width: 100%;
+}
+
+.statBlock .facts div .description {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.21px;
+    text-align: center;
+    color: #676767;
+}
