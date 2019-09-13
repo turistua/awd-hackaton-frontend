@@ -54,7 +54,7 @@ const PlantTree = props => {
     };
 
     const submitCode = () => {};
-
+    const user = props.user;
     return (
         <div className="plant-tree-container">
             <div className="plant-tree-video">
@@ -66,7 +66,9 @@ const PlantTree = props => {
             <div className="plant-header">
                 <div className="nav-back" onClick={() => props.router.history.goBack()}>&lt;Main</div>
                 <div className="header-stats">
-                    70 TreeTokens • 7 trees
+                    <span>{user.balance} Tree Tokens</span>
+                    <span> • </span>
+                    <span>{user.trees} trees</span>
                     <div className="header-avatar"></div>
                 </div>
             </div>

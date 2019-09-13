@@ -99,7 +99,7 @@ class App extends React.PureComponent {
                     }}/>
                     <Route path="/plantTree/:regionId" exact render={router => {
                         window.scrollTo(window.scrollX, 0);
-                        return (<PlantTree router={router} apiService={this.apiService} user={this.state.user}/>);
+                        return (<PlantTree user={this.state.user} router={router} apiService={this.apiService} user={this.state.user}/>);
                     }}/>
                 </Router>
             </div>
