@@ -187,7 +187,9 @@ export class Landing extends React.PureComponent {
                         {stepArrow}
                         <p className={styles['step-text']}>Receive the TreeToken</p>
                         {stepArrow}
-                        <button className={styles.submit}>
+                        <button onClick={() => {
+                            window.scrollTo(window.scrollX, this.mapRef.current.offsetTop - 50);
+                        }} className={styles.submit}>
                             Plant trees & help Earth
                         </button>
                         <div className={styles.donate}>
