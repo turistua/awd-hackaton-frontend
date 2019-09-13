@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import { MarkerWithLabel } from "react-google-maps/lib/components/addons/MarkerWithLabel";
 import { regions } from "components/RegionMap/RegionMap";
@@ -6,16 +6,12 @@ import { regions } from "components/RegionMap/RegionMap";
 import styles from "./mapStyles.json";
 import "./marker.css";
 
-const defaultCenter = { lat: 25, lng: 25 };
-
-const defaultZoom = 2;
-
 const GoogleMapWithAMarker = withScriptjs(
     withGoogleMap(props => {
         return (
             <GoogleMap
-                defaultZoom={defaultZoom}
-                defaultCenter={defaultCenter}
+                defaultZoom={props.mapConfig.zoom}
+                defaultCenter={props.mapConfig.center}
                 defaultOptions={{
                     disableDefaultUI: true, // disable default map UI
                     draggable: true, // make map draggable
@@ -24,12 +20,7 @@ const GoogleMapWithAMarker = withScriptjs(
                     scrollwheel: false, // allow scroll wheel
                     styles: styles, // change default map styles
                     restriction: {
-                        latLngBounds: {
-                            east: 180,
-                            north: 68,
-                            south: -43,
-                            west: -180
-                        },
+                        latLngBounds: props.mapConfig.latLngBounds,
                         strictBounds: true
                     }
                 }}
