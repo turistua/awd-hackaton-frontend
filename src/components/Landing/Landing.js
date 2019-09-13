@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import backgroundVideoUrl from "video/tree.mp4";
 import { Donate } from 'components/Donate/Donate';
+import { Code } from 'components/CodePopup/Code';
 import programme1 from 'img/e-sdg-goals-icons-individual-rgb-13-tcm-244-520347@2x.png';
 import programme2 from 'img/e-sdg-goals-icons-individual-rgb-15-tcm-244-520349@2x.png';
 import programme3 from 'img/e-sdg-goals-icons-individual-rgb-17-tcm-244-520352@2x.png';
@@ -45,12 +46,12 @@ export class Landing extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            code: '',
             infoBlockPage: 0,
             showSuccessCodePopup: false,
             showSignInPopup: false,
             showSignUpPopup: false,
             showDonatePopup: false,
+            showCodePopup: false,
             regionId: '',
             message: '',
             treeCount: 0,
@@ -62,17 +63,6 @@ export class Landing extends React.PureComponent {
         this.setState({
             infoBlockPage: page,
         })
-    }
-
-    submitCode = async () => {
-        if (!this.state.code) {
-            console.warn('no code to submit');
-            return;
-        }
-        const response = await this.props.submitCode();
-        this.setState({
-            showSuccessCodePopup: true,
-        });
     }
 
     tokensRef = React.createRef();
@@ -141,16 +131,10 @@ export class Landing extends React.PureComponent {
             </Popup>
         );
         const codePopup = (
-            <Route path="redeem">
-                <div style={{
-                    position: 'absolute',
-                    width: '90vw',
-                    height: '90vh',
-                }}>
-                    Redeem your code
-                </div>
-            </Route>
-        );
+            <Popup onClose={() => this.setState({showCodePopup: false})}>
+                <Code submitCode={this.props.submitCode} setState={data => this.setState(data)}/>
+            </Popup>
+        )
         const successCodePopup = (
             <Popup onClose={() => this.setState({showSuccessCodePopup: false})}>
                 <div className="successPopup">
@@ -198,15 +182,12 @@ export class Landing extends React.PureComponent {
                         <input
                             className={styles['code-input']}
                             placeholder="Enter your Unilever code here"
-                            value={this.state.code}
-                            onChange={e => {this.setState({code: e.target.value})}}
+                            onClick={() => this.setState({showCodePopup: true})}
                             />
                         {stepArrow}
                         <p className={styles['step-text']}>Receive the TreeToken</p>
                         {stepArrow}
-                        <button
-                            className={styles.submit}
-                            onClick={this.submitCode}>
+                        <button className={styles.submit}>
                             Plant trees & help Earth
                         </button>
                         <div className={styles.donate}>
@@ -301,6 +282,7 @@ export class Landing extends React.PureComponent {
                 {this.state.showSignInPopup ? signInPopup : null}
                 {this.state.showSignUpPopup ? signUpPopup : null}
                 {this.state.showDonatePopup ? donatePopup : null}
+                {this.state.showCodePopup ? codePopup : null}
             </div>
         )
     }
