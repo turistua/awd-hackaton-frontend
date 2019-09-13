@@ -93,7 +93,7 @@ export class Landing extends React.PureComponent {
                 <div className={styles.navbarNew}>
                     <Link className={styles.button} to="/signout">Signout</Link>
                     <div className={styles.stat}>
-                        <span><FontAwesomeIcon icon={faCoins} />{user.balance} Tree Tokens</span>
+                        <span>{user.balance} Tree Tokens</span>
                         <span> • </span>
                         <span>{user.trees} trees</span>
                     </div>

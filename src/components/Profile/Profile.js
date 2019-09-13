@@ -53,7 +53,7 @@ class ProfilePageBase extends React.PureComponent {
                     <div className={styles['tokens-block']}>
                         <div className={styles.balance}>
                             <div className={styles['tokens-count']}>{user.balance}</div>
-                            <div className={styles['tokens-add-button']}></div>
+                            <div onClick={this.setState({showEnterCodePopup: true})} className={styles['tokens-add-button']}></div>
                         </div>
                         <div className={styles.label}>TreeTokens</div>
                     </div>
