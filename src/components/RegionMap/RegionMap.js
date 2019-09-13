@@ -36,6 +36,32 @@ export const regions = [
     }
 ];
 
+const defaultCenter = { lat: 25, lng: 25 };
+
+const defaultZoom = 2;
+
+const defaultConfig = {
+    zoom: defaultZoom,
+    center: defaultCenter,
+    latLngBounds: {
+        east: 180,
+        north: 68,
+        south: -43,
+        west: -180
+    }
+}
+
+const mobileConfig = {
+    zoom: 1,
+    center: defaultCenter,
+    latLngBounds: {
+        east: 180,
+        north: 180,
+        south: -180,
+        west: -180
+    }
+}
+
 export class RegionMap extends React.PureComponent {
 
     constructor() {
@@ -81,6 +107,7 @@ export class RegionMap extends React.PureComponent {
                         infoboxPosX={this.state.markerLat}
                         regionId={this.state.regionId}
                         router={this.props.router}
+                        mapConfig={window.innerWidth > 768 ? defaultConfig : mobileConfig}
                         view='Home'
                     />
                 </div>
