@@ -1,5 +1,6 @@
 import React from "react";
 import { Popup } from "components/Popup/Popup";
+import styles from './Code.module.css';
 
 export class Code extends React.PureComponent {
     codeRef = React.createRef();
@@ -31,9 +32,9 @@ export class Code extends React.PureComponent {
 
     render() {
         return (
-            <div>
-                <h2>UNILEVER CODE</h2>
-                <form>
+            <form className={styles.code}>
+            <h2>Unilever Code</h2>
+                <fieldset>
                     <input
                         ref={this.codeRef}
                         name="code"
@@ -43,15 +44,13 @@ export class Code extends React.PureComponent {
                     <button onClick={e => this.onSubmit(e)}>
                         Receive TreeTokens
                     </button>
-                </form>
-                <div>
-                    Buying Unilever goods in the{" "}
-                    <a href="#">following stores you’ll get</a>
-                    individual Unilever code. Use it to receive the TreeTokens.
-                    Then you can spend TreeTokens to plant trees and fight
-                    deforestation.
-                </div>
-            </div>
+                    <div>
+                        Buying Unilever goods in the{" "}
+                        <a href="#">following stores you’ll get</a> individual Unilever code. Use it to receive the TreeTokens.
+                        Then you can spend TreeTokens to plant trees and fight deforestation.
+                    </div>
+                </fieldset>
+            </form>
         );
     }
 }

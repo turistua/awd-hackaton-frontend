@@ -1,0 +1,93 @@
+.code h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.code > fieldset {
+  max-width: 375px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 100px;
+  font-family: SFProDisplay, sans-serif;
+  padding: 40px 23px 30px;
+  border: none;
+}
+
+.code > fieldset label {
+  text-align: start;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: .21px;
+  color: #676767;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+}
+
+.code > fieldset input {
+  margin: 0 0 15px 0;
+  border: 0;
+  padding: 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  font-size: 16px;
+  border-bottom: 1px solid #5ebe5b;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 31px;
+  letter-spacing: .27px;
+  outline: none;
+  text-align: left;
+  color: rgba(0,0,0,.5);
+  height: 31px;
+  background-color: rgba(94,190,91,.25);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+.code > fieldset input::placeholder {
+  font-size: 16px;
+  color: rgba(0,0,0,.5);
+}
+
+.code > fieldset input:-webkit-autofill {
+  font-size: 20px;
+  color: #5ebe5b;
+  background-color: white !important;
+}
+
+button {
+  margin: 0 auto;
+  height: 45px;
+  border-radius: 4px;
+  background-color: #5ebe5b;
+  border: none;
+  color: white;
+  font-family: inherit;
+  width: 100%;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: .34px;
+  text-align: center;
+  margin-bottom: 20px;
+  outline: 0;
+  cursor: pointer;
+}
+button:hover {
+  opacity: .9;
+}
+
+.code fieldset > div {
+    line-height: 1.3;
+}
