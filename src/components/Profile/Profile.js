@@ -7,11 +7,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
 import { Footer } from 'components/Footer/Footer';
+import { Popup } from 'components/Popup/Popup';
+import { Code } from 'components/CodePopup/Code';
 
 class ProfilePageBase extends React.PureComponent {
 
+    constructor() {
+        super();
+        this.state = {
+            showCodePopup: false,
+        }
+    }
+
     render() {
         const { user } = this.props;
+
+        const codePopup = (
+            <Popup onClose={() => this.setState({showCodePopup: false})}>
+                <Code submitCode={this.props.submitCode} setState={data => this.setState(data)}/>
+            </Popup>
+        )
         const achivementsTable = user.achievements.length ? (
             <div className={styles['achivements-table']}>
                 <div className={styles.row}>
@@ -53,7 +68,7 @@ class ProfilePageBase extends React.PureComponent {
                     <div className={styles['tokens-block']}>
                         <div className={styles.balance}>
                             <div className={styles['tokens-count']}>{user.balance}</div>
-                            <div onClick={this.setState({showEnterCodePopup: true})} className={styles['tokens-add-button']}></div>
+                            <div onClick={() => this.setState({showCodePopup: true})} className={styles['tokens-add-button']}></div>
                         </div>
                         <div className={styles.label}>TreeTokens</div>
                     </div>
@@ -83,6 +98,7 @@ class ProfilePageBase extends React.PureComponent {
                     </div>
                 </div>
                 <Footer />
+                {this.state.showCodePopup ? codePopup : null}
             </div>
         )
     }

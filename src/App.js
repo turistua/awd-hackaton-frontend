@@ -83,6 +83,9 @@ class App extends React.PureComponent {
                         return (
                             <ProfilePage
                                 user={this.state.user}
+                                submitCode={async () => {
+                                    await this.apiService.submitCode(this.state.code);
+                                }}
                                 />
                         )
                     }}/>
