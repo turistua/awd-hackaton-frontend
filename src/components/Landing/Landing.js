@@ -50,11 +50,12 @@ export class Landing extends React.PureComponent {
             showSuccessCodePopup: false,
             showSignInPopup: false,
             showSignUpPopup: false,
+            showDonatePopup: false,
             regionId: '',
             message: '',
             treeCount: 0,
-            showDonatePopup: false,
         };
+        this.mapRef = React.createRef()
     }
 
     onPageChange = (page) => {
@@ -161,7 +162,15 @@ export class Landing extends React.PureComponent {
                             <div className="tokensLabel">TreeTokens<br/>granted</div>
                         </div>
                         <div className="hr"></div>
-                        <button>Let's go planting</button>
+                        <button onClick={() => {
+                            this.setState({
+                                showSuccessCodePopup: false,
+                                showSignInPopup: false,
+                                showSignUpPopup: false,
+                                showDonatePopup: false,
+                            });
+                            window.scrollTo(window.scrollX, this.mapRef.current.offsetTop - 50);
+                        }}>Let's go planting</button>
                         <div className="submitOneMore">
                             <a href="#">Submit one more code</a>
                         </div>
@@ -245,6 +254,7 @@ export class Landing extends React.PureComponent {
                         user={this.props.user}
                         handleMapMarkerClick={(data) => this.setState(data)}
                         router={this.props.router}
+                        outerRef={this.mapRef}
                     />
                 </div>
                 <div className={styles.planters}>

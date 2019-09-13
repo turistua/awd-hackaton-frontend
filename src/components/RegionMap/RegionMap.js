@@ -66,7 +66,7 @@ export class RegionMap extends React.PureComponent {
     render() {
         const arrow = <div className={styles.arrow}></div>
         return (
-            <div>
+            <div ref={this.props.outerRef}>
                 <div className={styles.mapBlock} style={{ width: '100%', height: '400px' }}>
                     <GoogleMapWithAMarker
                         googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDumWdHunT8gi1yt7mWG44ZpH0X3Rrz9sY"
