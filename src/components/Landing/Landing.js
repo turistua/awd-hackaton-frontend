@@ -24,7 +24,7 @@ const planters = [
     },
     {
         avatar: 'https://i.pravatar.cc/300?img=51',
-        name: 'John',
+        name: 'Igor',
         trees: 121,
     },
     {
@@ -69,7 +69,7 @@ export class Landing extends React.PureComponent {
             console.warn('no code to submit');
             return;
         }
-        // await this.props.submitCode();
+        const response = await this.props.submitCode();
         this.setState({
             showSuccessCodePopup: true,
         });
@@ -158,7 +158,7 @@ export class Landing extends React.PureComponent {
                     <div className="successPopupWrapper">
                         <div className="hooray">Hooray!</div>
                         <div className="tokensGranted">
-                            <div className="tokensAmount">50</div>
+                            <div className="tokensAmount">{Math.floor(Math.random() * Math.floor(100))}</div>
                             <div className="tokensLabel">TreeTokens<br/>granted</div>
                         </div>
                         <div className="hr"></div>

@@ -78,7 +78,7 @@ const PlantTree = props => {
                                 item.id.toString() ===
                                 props.router.match.params.regionId.toString()
                         ) || {}
-                    ).message
+                    ).name
                 }
             </h1>
             <div className="plant-intro">Humans have razed some 20 percent of the Amazon rainforest over the last 40 years alone, and an additional 20 percent is at risk of being destroyed — a potentially catastrophic loss that would cause this vital ecosystem to unravel.</div>
@@ -87,6 +87,9 @@ const PlantTree = props => {
 
             <div className="plant-wrapper">
                 <h2 className="plant-h2">Plant Trees</h2>
+                {planted && (
+                    <div className="plant-success">Thank you for help!</div>
+                )}
                 <div className="plant-tokens-amount">You have {(props.user || {}).balance || 0} TreeTokens</div>
                 <div className="plant-tokens-dial">
                     <div className="plant-tokens-dial-button" onClick={() => decrement()}>-</div>

@@ -100,6 +100,18 @@
   color: #000;
   text-transform: uppercase;
 }
+.plant-success {
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: .26px;
+  text-align: center;
+  color: #5ebe5b;
+  margin-bottom: 5px;
+}
 .plant-tokens-amount {
   font-family: Arial;
   font-size: 15px;

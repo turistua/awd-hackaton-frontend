@@ -29,9 +29,9 @@ export const achievements = [
 
 export const mockUsers = [
     {
-        email: 'test@test.com',
-        firstName: 'Mark',
-        lastName: 'Stevens',
+        email: 'iburyak@gmail.com',
+        firstName: 'Igor',
+        lastName: 'Buriak',
         badge: 'Starter',
         treesTillLevel: 15,
         balance: 155,

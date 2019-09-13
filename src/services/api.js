@@ -59,15 +59,16 @@ export class ApiService {
             throw Error('Not authorized');
         }
         console.log('submitCode', this.userService.currentUser.email, code);
-        return fetch("http://89.22.50.171/api/v1/useraddcheck", {
+        return fetch("http://89.22.50.171:8080/api/v1/useraddcheck", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                login: this.userService.currentUser.email,
-                code,
+                email: this.userService.currentUser.email,
+                amount: Math.floor(Math.random() * Math.floor(100)),
+                number: '123'
             })
         })
             .then((res, rej) => {
