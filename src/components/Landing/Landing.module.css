@@ -153,7 +153,7 @@
 
 .submit {
     height: 55px;
-    border-radius: 10px;
+    border-radius: 4px;
     background-color: #5ebe5b;
     border:none;
     color: white;
@@ -363,17 +363,17 @@
     width: 100%;
     padding: 0 25px;
     box-sizing: border-box;
+    padding-top: 80px;
 }
 
 .map-container {
     width: 100%;
     background-color: #e7e7e7;
-    padding-top: 380px;
+    padding-top: 530px;
     padding-bottom: 40px;
 }
 
 .planters {
-    height: 335px;
     width: 100%;
     background-color: #eeeeee;
     padding: 70px 15px;
@@ -391,8 +391,36 @@
     letter-spacing: 0.36px;
     text-align: center;
     color: #000000;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 5px auto;
     max-width: 375px;
+    text-transform: uppercase;
+}
+
+.planters .membersCount {
+    width: 100%;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.planters .button {
+    max-width: 256px;
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: solid 1px #5ebe5b;
+    color: #5ebe5b;
+    padding: 5px;
+    margin: 0 auto;
+    font-family: DIN2014, Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
 
 .planters > .list {
@@ -400,6 +428,7 @@
     flex-direction: row;
     max-width: 375px;
     margin: 0 auto;
+    margin-bottom: 30px;
 }
 
 .planters > .list > div {
@@ -413,6 +442,7 @@
     background: #bbb;
     margin: 0 auto;
     margin-bottom: 10px;
+    background-size: cover;
 }
 
 .planters .name {
@@ -489,3 +519,111 @@
     list-style: none;
 }
 
+.goals img {
+    width: 80px;
+    height: 80px;
+}
+
+.navbarNewWrapper {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5)
+}
+
+.navbarNew {
+    height: 40px;
+    max-width: 375px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.navbarNew > *:not(:last-child) {
+    margin-right: 10px;
+}
+
+.navbarNew .button {
+    font-family: SFProDisplay;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.26px;
+    text-align: right;
+    color: #ffffff;
+    opacity: 0.69;
+    margin-right: 90px;
+}
+
+.navbarNew .stat {
+    font-family: SFProDisplay;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.26px;
+    text-align: right;
+    color: #ffffff;
+    opacity: 0.69;
+}
+
+.navbarNew .avatar img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+
+.navbarUnregWrapper {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.navbarUnreg {
+    max-width: 375px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px 50px;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.navbarUnreg a {
+    width: 98px;
+    height: 30px;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.navbarUnreg a:hover {
+    width: 98px;
+    height: 30px;
+    border-radius: 4px;
+    border: solid 1px #5ebe5b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}

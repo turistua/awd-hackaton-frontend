@@ -52,10 +52,6 @@
     color: #676767;
 }
 
-.achivements-table {
-    display: flex;
-    padding: 30px 0;
-}
 
 .separator {
     height: 2px;
@@ -110,4 +106,193 @@
     letter-spacing: 0.29px;
     text-align: center;
     color: #676767;
+}
+
+.backButton {
+    position: absolute;
+    width: 12px;
+    text-align: left;
+    color: #5ebe5b;
+}
+
+.backButton img {
+    width: 12px;
+    fill: #5ebe5b;
+}
+
+.achivements-table {
+    padding: 30px 0;
+}
+
+.achivements-table .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.achivements-table .row:last-child {
+    margin-bottom: 0;
+}
+
+.achievement {
+    width: 33%;
+}
+
+.achievement .cell {
+}
+
+.achievement .avatar {
+    width: 46px;
+    height: 46px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.achievement > .title {
+    font-family: SFProDisplay;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.22px;
+    text-align: center;
+    color: #676767;
+}
+
+.statistics {
+    background-color: #f2f2f2;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.statistics .statBlock {
+    font-family: DIN2014-Demi, SFProDisplay, Arial, Helvetica, sans-serif;
+    max-width: 345px;
+    margin: 0 auto;
+    padding: 25px;
+    padding-top: 40px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.statBlock h1 {
+    text-transform: uppercase;
+    font-size: 21px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.36px;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.treesCount {
+    font-size: 48px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+}
+
+.treesLabel {
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.29px;
+    text-align: center;
+    color: #676767;
+    margin-bottom: 30px;
+}
+
+.statBlock .facts {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.statBlock .facts div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statBlock .facts div .img {
+    margin-bottom: 10px;
+}
+
+.statBlock .facts div .number {
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.33px;
+    text-align: center;
+    color: #000000;
+}
+
+.statBlock .facts div .number {
+    font-family: DIN2014-Demi, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.33px;
+    text-align: center;
+    color: #000000;
+    width: 80%;
+    margin-bottom: 5px;
+}
+
+.statBlock .facts div .description {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.21px;
+    text-align: center;
+    color: #676767;
+    width: 80%;
+}
+
+.shareButton {
+    width: 100%;
+    border-radius: 4px;
+    border: solid 1px #5ebe5b;
+    padding: 6px;
+    color: #5ebe5b;
+}
+
+.shareButton > *:first-child {
+    margin-right: 8px;
+}
+
+.shareButton > span {
+    font-family: DIN2014, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.39;
+    letter-spacing: 0.31px;
+    text-align: center;
+    color: #5ebe5b;
 }

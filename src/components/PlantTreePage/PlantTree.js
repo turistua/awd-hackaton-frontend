@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
-import { markers } from "components/GoogleMap/GoogleMapWithMarker";
 import styles from "components/Landing/Landing.module.css";
 import backgroundVideoUrl from "video/smoke.mp4";
+import { regions } from "components/RegionMap/RegionMap";
+import landingStyles from "components/Landing/Landing.module.css";
+import profileStyles from 'components/Profile/Profile.module.css';
 import "./PlantTree.css";
+import oxygenImg from 'img/oxygen.svg';
+import coImg from 'img/co2.svg';
 
 import pic1 from "img/group-26.svg";
 import pic2 from "img/group-27.svg";
@@ -18,6 +22,7 @@ const treesToTokens = trees => {
 const PlantTree = props => {
     const [treeCount, setTreeCount] = useState(0);
     const [code, setCode] = useState();
+    const [planted, setPlanted] = useState(false);
 
     const onSubmit = e => {
         e.preventDefault();
@@ -33,7 +38,9 @@ const PlantTree = props => {
             treeCount,
             (props.user || {}).email,
             props.router.match.params.regionId
-        );
+        ).then(data => {
+            data && setPlanted(true);
+        });
     };
 
     const decrement = () => {
@@ -66,7 +73,7 @@ const PlantTree = props => {
             <h1 className="plant-h1">
                 {
                     (
-                        markers.find(
+                        regions.find(
                             item =>
                                 item.id.toString() ===
                                 props.router.match.params.regionId.toString()
@@ -107,7 +114,6 @@ const PlantTree = props => {
                         </div>
                     </>
                 )}
-
                 <div className="plant-hr"></div>
                 <h2 className="plant-h21">Contribution to nature</h2>
                 <div className="plant-contrib">

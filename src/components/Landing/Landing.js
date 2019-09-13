@@ -10,22 +10,27 @@ import { Link, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import backgroundVideoUrl from "video/tree.mp4";
+import { Donate } from 'components/Donate/Donate';
+import programme1 from 'img/e-sdg-goals-icons-individual-rgb-13-tcm-244-520347@2x.png';
+import programme2 from 'img/e-sdg-goals-icons-individual-rgb-15-tcm-244-520349@2x.png';
+import programme3 from 'img/e-sdg-goals-icons-individual-rgb-17-tcm-244-520352@2x.png';
+import { Footer } from 'components/Footer/Footer';
 
 const planters = [
     {
-        avatar: '',
+        avatar: 'https://i.pravatar.cc/300?img=20',
         name: 'Alexandra',
         trees: 147,
     },
     {
-        avatar: '',
+        avatar: 'https://i.pravatar.cc/300?img=51',
         name: 'John',
-        trees: 14,
+        trees: 121,
     },
     {
-        avatar: '',
-        name: 'John Smith',
-        trees: 10,
+        avatar: 'https://i.pravatar.cc/300?img=58',
+        name: 'Michael',
+        trees: 119,
     },
 ];
 
@@ -45,10 +50,12 @@ export class Landing extends React.PureComponent {
             showSuccessCodePopup: false,
             showSignInPopup: false,
             showSignUpPopup: false,
+            showDonatePopup: false,
             regionId: '',
             message: '',
-            treeCount: 0
+            treeCount: 0,
         };
+        this.mapRef = React.createRef()
     }
 
     onPageChange = (page) => {
@@ -84,22 +91,24 @@ export class Landing extends React.PureComponent {
         const {user} = this.props;
         const stepArrow = (<p className={styles['step-arrow']}>↓</p>);
         const navbar = (
-            <div className={styles.navbar}>
-                <div className={styles.buttons}>
-                    <a onClick={() => this.setState({ showSignUpPopup: true })}>Register</a>
-                    <a onClick={() => this.setState({ showSignInPopup: true })}>Login</a>
+            <div className={styles.navbarUnregWrapper}>
+                <div className={styles.navbarUnreg}>
+                    <a onClick={() => this.setState({ showSignUpPopup: true })}>Sign up</a>
+                    <a onClick={() => this.setState({ showSignInPopup: true })}>Sign in</a>
                 </div>
             </div>
         );
         const navbarUser = () => (
-            <div className={styles.navbar}>
-                <div className={styles.buttons}>
-                    <Link to="/profile">Profile</Link>
-                    <Link to="/signout">Signout</Link>
-                    <div>
+            <div className={styles.navbarNewWrapper}>
+                <div className={styles.navbarNew}>
+                    <Link className={styles.button} to="/signout">Signout</Link>
+                    <div className={styles.stat}>
                         <span><FontAwesomeIcon icon={faCoins} />{user.balance} Tree Tokens</span>
-                        <span> •</span>
+                        <span> • </span>
                         <span>{user.trees} trees</span>
+                    </div>
+                    <div className={styles.avatar}>
+                        <Link to="/profile"><img src={user.avatarUrl} /></Link>
                     </div>
                 </div>
             </div>
@@ -126,6 +135,11 @@ export class Landing extends React.PureComponent {
                 }} />
             </Popup>
         );
+        const donatePopup = (
+            <Popup onClose={() => this.setState({showDonatePopup: false})}>
+                <Donate userService={this.props.userService}/>
+            </Popup>
+        );
         const codePopup = (
             <Route path="redeem">
                 <div style={{
@@ -148,7 +162,15 @@ export class Landing extends React.PureComponent {
                             <div className="tokensLabel">TreeTokens<br/>granted</div>
                         </div>
                         <div className="hr"></div>
-                        <button>Let's go planting</button>
+                        <button onClick={() => {
+                            this.setState({
+                                showSuccessCodePopup: false,
+                                showSignInPopup: false,
+                                showSignUpPopup: false,
+                                showDonatePopup: false,
+                            });
+                            window.scrollTo(window.scrollX, this.mapRef.current.offsetTop - 50);
+                        }}>Let's go planting</button>
                         <div className="submitOneMore">
                             <a href="#">Submit one more code</a>
                         </div>
@@ -189,7 +211,7 @@ export class Landing extends React.PureComponent {
                         </button>
                         <div className={styles.donate}>
                             <p>Want to participate without Unilever code?</p>
-                            <a href='#'>Donate and plant trees</a>
+                            <a href='#' onClick={() => this.setState({ showDonatePopup: true })}>Donate and plant trees</a>
                         </div>
                         <div className={styles['info-block']}>
                             <p className={styles['trees-planted']}>{treesPlanted}</p>
@@ -198,7 +220,7 @@ export class Landing extends React.PureComponent {
                                 <div className={styles.current} style={{
                                     width: '20%',
                                 }}></div>
-                                <span>1st goal: 1 000 000 trees</span>
+                                <span style={{zIndex: 2}}>1st goal: 1 000 000 trees</span>
                             </div>
                             <div className={styles.info}>
                                 The loss of trees and other vegetation can cause climate change, desertification, soil erosion, fewer crops, flooding, increased greenhouse gases in the atmosphere, and a host of problems for indigenous people.
@@ -232,10 +254,12 @@ export class Landing extends React.PureComponent {
                         user={this.props.user}
                         handleMapMarkerClick={(data) => this.setState(data)}
                         router={this.props.router}
+                        outerRef={this.mapRef}
                     />
                 </div>
                 <div className={styles.planters}>
                     <p className={styles.heading}>Top tree planters</p>
+                    <p className={styles.membersCount}>We already have 1547 members</p>
                     <div className={styles.list}>
                     {
                         planters.map(planter => {
@@ -258,20 +282,25 @@ export class Landing extends React.PureComponent {
                         })
                     }
                     </div>
+                    <div className={styles.button}>
+                        Show all planters
+                    </div>
                 </div>
                 <div className={styles.goals}>
                     <p className={styles.heading}>
                         Unilever supports the following UN Sustainable Development Goals
                     </p>
                     <ul className={styles.list}>
-                        <li><a></a></li>
-                        <li><a></a></li>
-                        <li><a></a></li>
+                        <li><img src={programme1} alt="Sustainable development goals"/></li>
+                        <li><img src={programme2} alt="Sustainable development goals" /></li>
+                        <li><img src={programme3} alt="Sustainable development goals" /></li>
                     </ul>
                 </div>
+                <Footer />
                 {this.state.showSuccessCodePopup ? successCodePopup : null}
                 {this.state.showSignInPopup ? signInPopup : null}
                 {this.state.showSignUpPopup ? signUpPopup : null}
+                {this.state.showDonatePopup ? donatePopup : null}
             </div>
         )
     }

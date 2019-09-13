@@ -3,27 +3,37 @@ import styles from './RegionMap.module.css';
 import mapLink from 'img/worldmap-blank.svg';
 import GoogleMapWithAMarker from 'components/GoogleMap/GoogleMapWithMarker';
 
-const regions = [
+export const regions = [
     {
-        name: 'Amazon',
-        desc: 'Produces 25% of world\'s oxygen. Region is suffering from massive fire',
-        trees: '10 547',
+        id:1,
+        name: 'South America',
+        desc: 'Humans have razed some 20 percent of the Amazon rainforest over the last 40 years alone, and an additional 20 percent is at risk of being…',
+        trees: '37 547',
+        lat: 0.063834,
+        lng: -71.196064,
+        message: "Region name 1",
+        radius: 35
     },
     {
-        name: 'Siberia',
-        desc: 'Produces 25% of world\'s oxygen. Region is suffering from massive fire',
-        trees: '2 784',
+        id: 2,
+        name: 'South-East Asia',
+        desc: 'The region has already lost more than 50 percent of its original forest cover and that some of the primary rainforests in the region will be lost by…',
+        trees: '54 784',
+        lat: 7.924717,
+        lng: 20.436768,
+        message: "Region name 2",
+        radius: 50
     },
     {
-        name: 'Colombia',
-        desc: 'Produces 25% of world\'s oxygen. Region is suffering from massive fire',
-        trees: '541',
-    },
-    {
-        name: 'China',
-        desc: 'Produces 25% of world\'s oxygen. Region is suffering from massive fire',
-        trees: '1 124',
-    },
+        id: 3,
+        name: 'West and Central Africa',
+        desc: 'Deforestation rates in southern Africa\'s woodlands are five times higher than prior estimates, according to recent researches. More…',
+        trees: '24 587',
+        lat: 41.749427,
+        lng: 90.304284,
+        message: "Region name 3",
+        radius: 50
+    }
 ];
 
 export class RegionMap extends React.PureComponent {
@@ -56,7 +66,7 @@ export class RegionMap extends React.PureComponent {
     render() {
         const arrow = <div className={styles.arrow}></div>
         return (
-            <div>
+            <div ref={this.props.outerRef}>
                 <div className={styles.mapBlock} style={{ width: '100%', height: '400px' }}>
                     <GoogleMapWithAMarker
                         googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDumWdHunT8gi1yt7mWG44ZpH0X3Rrz9sY"
@@ -88,7 +98,7 @@ export class RegionMap extends React.PureComponent {
                                         className={styles['region-row']}>
                                         <div>
                                             <div>
-                                                <div className={styles['region-name']}>{region.name}</div>
+                                                <div className={styles['region-name']} onClick={() => this.props.router.history.push(`/plantTree/${region.id}`)}>{region.name}</div>
                                                 {arrow}
                                             </div>
                                             <div className={styles['region-desc']}>{region.desc}</div>

@@ -1,5 +1,32 @@
 
 
+export const achievements = [
+    {
+        title: 'First tree',
+        img: '',
+    },
+    {
+        title: '15 trees',
+        img: '',
+    },
+    {
+        title: '100 trees',
+        img: '',
+    },
+    {
+        title: 'Panda saver',
+        img: '',
+    },
+    {
+        title: 'Tiger saver',
+        img: '',
+    },
+    {
+        title: 'Bear saver',
+        img: '',
+    },
+]
+
 export const mockUsers = [
     {
         email: 'test@test.com',
@@ -9,7 +36,7 @@ export const mockUsers = [
         treesTillLevel: 15,
         balance: 155,
         avatarUrl: 'https://i.pravatar.cc/300?img=11',
-        achievements: [],
+        achievements: achievements,
         statistic: {},
         trees: 7,
     }
@@ -17,7 +44,7 @@ export const mockUsers = [
 
 export class UserService {
 
-    currentUser = null;
+    currentUser = mockUsers[0];
 
     async getProfile(email) {
         return await fetch(`http://89.22.50.171:8080/api/v1/getprofile?login=${email}`, {
@@ -28,7 +55,6 @@ export class UserService {
             },
         })
             .then((res, rej) => {
-                // console.log("profile", res);
                 return res.json().then(data => data);
             })
             .catch(error =>
@@ -76,7 +102,7 @@ export class UserService {
                 badge: 'starter',
                 treesTillLevel: 15,
                 avatarUrl: 'https://i.pravatar.cc/300?img=11',
-                achievements: [],
+                achievements: achievements,
                 statistic: {},
                 trees: 7,
             };
@@ -117,7 +143,7 @@ export class UserService {
                 badge: 'starter',
                 treesTillLevel: 15,
                 avatarUrl: 'https://i.pravatar.cc/300?img=11',
-                achievements: [],
+                achievements: achievements,
                 statistic: {},
                 trees: 7,
             };
@@ -127,7 +153,36 @@ export class UserService {
     }
 
     async getStatistic(email) {
-        // /api/v1/statistic
+        return fetch(`http://89.22.50.171:8080/api/v1/statistic?login=${email}`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then((res, rej) => {
+                return res.json().then(data => data);
+            })
+            .catch(error => console.log("error", error));
+    }
+
+    async donate(amount) {
+        return fetch("http://89.22.50.171:8080/api/v1/user", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: this.currentUser.email,
+                amount,
+            })
+        })
+            .then((res, rej) => {
+                console.log("Donate", res);
+                return res;
+            })
+            .catch(error => console.log("error", error));
     }
 
     logout() {
