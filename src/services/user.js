@@ -44,7 +44,7 @@ export const mockUsers = [
 
 export class UserService {
 
-    currentUser = mockUsers[0];
+    currentUser = null;
 
     async getProfile(email) {
         return await fetch(`http://89.22.50.171:8080/api/v1/getprofile?login=${email}`, {
@@ -132,7 +132,12 @@ export class UserService {
         if (isLogin) {
             const user = await this.getProfile(email);
             const profile = user.profile;
+            const statistic = await this.getStatistic(email);
+            const userStatistic = statistic.userStatistic;
             if (!profile) {
+                return null;
+            }
+            if (!userStatistic) {
                 return null;
             }
             this.currentUser = {
@@ -145,7 +150,7 @@ export class UserService {
                 avatarUrl: 'https://i.pravatar.cc/300?img=11',
                 achievements: achievements,
                 statistic: {},
-                trees: 7,
+                trees: userStatistic.amountOfTrees,
             };
             return this.currentUser;
         }
