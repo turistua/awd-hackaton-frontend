@@ -95,7 +95,7 @@ export class RegionMap extends React.PureComponent {
             <div ref={this.props.outerRef}>
                 <div className={styles.mapBlock} style={{ width: '100%', height: '400px' }}>
                     <GoogleMapWithAMarker
-                        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDumWdHunT8gi1yt7mWG44ZpH0X3Rrz9sY"
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAwXLb8DusYPwoIgJ6eqrHTUNrpvjaGYUA"
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `100%` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
